@@ -1,2 +1,47 @@
-<h1>User::Homes#about</h1>
-<p>Find me in app/views/user/homes/about.html.erb</p>
+<div class="container">
+	<div class="caption">
+		<h1>What is MCS Cafe?</h1>
+		<p>MCS Cafeはお客様に美味しいコーヒーと素敵な空間を提供する場です</p>
+		<p>オーストラリアのカフェで経験を積んだバリスタがあなたの一日をスタートさせてくれます</p>
+		<p>名前の由来は"Meet & Create Something"の頭文字を取って名付けられました</p>
+		<%= image_tag('coffee.svg', style:'width: 300px;') %>
+	</div>
+
+	<div class="caption">
+		<h1>You can use MCS Cafe for working and meeting point</h1>
+		<p>名前の由来に"Meet"とあるように、様々な人との出会いを提供しています</p>
+		<p>お仕事の予定や恋人とのデートのMeeting Pointとしてもご利用ください</p>
+		<div class="row">
+			<div class="col-xs-6">
+				<%= image_tag('meeting.svg', style:'width: 300px;') %>
+			</div>
+			<div class="col-xs-6">
+				<%= image_tag('work.svg', style:'width: 300px; padding-top: 50px;') %>
+			</div>
+		</div>
+	</div>
+
+	<div class="caption">
+		<h1>If you want to find partner for business you should join</h1>
+		<p>MCS Cafeではユーザー登録をしていただけます</p>
+		<p>ただのCafeとしてご利用いただく分にはユーザー登録する必要はありません</p>
+		<p>美味しいコーヒーを飲んで、空間をお楽しみください</p>
+		<p>しかし、もしあなたがビジネスのパートナーを見つけたいのであれば</p>
+		<p>ユーザー登録してもっと深くMCS Cafeという空間を楽しみましょう</p>
+		<div class="row">
+			<div class="col-xs-6">
+				<%= image_tag('interview.svg', style:'width: 300px; padding-top: 40px;') %>
+			</div>
+			<div class="col-xs-6">
+				<%= image_tag('team.svg', style:'width: 300px; padding-top: 40px;') %>
+			</div>
+		</div>
+	</div>
+
+	<div class="caption-footer">
+		<h1>If you want to join</h1>
+		<div class="signin">
+	    <%= link_to "Sing Up", new_user_registration_path, class:"btn login", style:"color: #fff; font-size: 25px;" %>
+		</div>
+	</div>
+</div>

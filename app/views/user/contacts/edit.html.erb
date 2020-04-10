@@ -1,2 +1,21 @@
-<h1>User::Contacts#edit</h1>
-<p>Find me in app/views/user/contacts/edit.html.erb</p>
+<!-- このviewは必要なくなった -->
+<div class="container">
+	<h1>お問い合わせ内容変更</h1>
+		<%= form_with(model: @contact, local: true, url: contacts_confirm_path) do |f| %>
+			<table class="product-form">
+				<tr>
+					<td><%= f.label :タイトル %></td>
+					<td><%= f.text_field :title, class:"form-control" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.label :お問い合わせ内容 %></td>
+					<td><%= f.text_field :body, class:"form-control" %></td>
+				</tr>
+
+				<tr>
+					<td><%= f.submit :内容を確定する %></td>
+				</tr>
+			</table>
+		<% end %>
+</div>

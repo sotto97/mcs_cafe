@@ -1,3 +1,83 @@
 // Place all the styles related to the user::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+section{
+	padding-top: 30px;
+}
+
+.about{
+	position: relative;
+	height: 500px;
+	width: 100%;
+	background-color: #2E3892;
+}
+
+.about .explain{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+}
+
+.place h4{
+	padding-top: 15px;
+}
+
+.contact{
+	margin-top: 30px;
+	position: relative;
+	height: 550px;
+	width: 100%;
+	background-color: #2E3892;
+}
+
+.contact .content{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+}
+
+.caption{
+	text-align: center;
+	padding-top: 50px;
+	height: 500px;
+}
+
+.caption-footer .btn{
+	width: 200px;
+	height: 80px;
+	background-color: #00BF3E;
+	padding-top: 20px;
+}
+
+.caption p{
+	font-size: 15px
+}
+
+.caption-footer{
+	position: relative;
+	padding-top: 50px;
+	height: 500px;
+	width: 100%;
+}
+
+.caption-footer h1{
+	text-align: center;
+}
+
+.caption-footer .signin{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+}

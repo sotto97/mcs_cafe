@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   # userのrouting  module: "user"の記述でuserフォルダを指定している
   get 'about' => 'user/homes#about'
-  resources :contacts, only: [:new, :edit, :create], module: 'user'
+  resources :contacts, only: [:new, :create], module: 'user'
   get 'contacts/confirm' => 'user/contacts#confirm'
+  post 'contacts/edit' => 'user/contacts#edit'
   get 'contacts/thanks' => 'user/contacts#thanks'
   get 'mcs' => 'user/tops#top'
   resources :users, only: [:index, :edit, :update], module: 'user' do

@@ -1,2 +1,30 @@
-<h1>User::Contacts#confirm</h1>
-<p>Find me in app/views/user/contacts/confirm.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+
+   	<h2 style="text-align: center">お問い合わせ内容確認</h2>
+		<%= form_with(model: @contact, local: true, url: contacts_path) do |f| %>
+
+			<div class="product-form">
+				<h5><strong>タイトル</strong></h5>
+				<%= f.hidden_field :title %>
+				<%= "#{@contact.title}" %>
+			</div>
+
+			<div class="product-form">
+				<h5><strong>お問い合わせ内容</strong></h5>
+				<%= f.hidden_field :body %>
+				<%= "#{@contact.body}" %>
+			</div>
+
+			<div class="actions">
+				<!-- 'back'というactionをcontrollerにも追加することによって使える -->
+				<%= f.submit :入力画面に戻る, name: 'back', class:"btn contact", style:"color: #fff; font-size: 15px;" %>
+				<%= f.submit :送信する, class:"btn send-contact", style:"color: #fff; font-size: 15px;" %>
+			</div>
+		<% end %>
+
+		</div>
+	</div>
+</div>
+

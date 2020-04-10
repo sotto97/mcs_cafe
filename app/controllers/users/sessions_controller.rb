@@ -24,4 +24,18 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  def after_sign_in_path_for(resource)
+    flash[:notice] = "ログインしました。"
+    mcs_path
+  end
+
+  def after_sign_up_path_for(resource)
+    flash[:notice] = "新規登録しました。"
+    mcs_path
+  end
+
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "ログアウトしました。"
+    root_path
+  end
 end
