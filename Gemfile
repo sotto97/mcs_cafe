@@ -69,3 +69,5 @@ gem 'refile-mini_magick'
 gem 'pry-byebug'
 gem 'cancancan'
 gem 'rubocop', require: false
+gem "font-awesome-rails"
+
