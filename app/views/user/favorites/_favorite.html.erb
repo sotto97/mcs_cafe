@@ -1,0 +1,18 @@
+<% if post.favorited_by?(current_user) %>
+  <li>
+    <%= link_to post_favorites_path(post), method: :delete do %>
+	    <i class="fas fa-thumbs-up" aria-hidden="true" style="color: #32be8f;"></i>
+      <%= post.favorites.count %>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to post_favorites_path(post), method: :post do %>
+	    <i class="far fa-thumbs-up" aria-hidden="true"></i>
+      <%= post.favorites.count %>
+    <% end %>
+  </li>
+<% end %>
+<%#= link_to post_favorites_path(post, redirect_id: 0), method: :delete, remote: true do %>
+	<!-- <span class="glyphicon glyphicon-heart"><%= post.favorites.count %></span> -->
+<%# end %>
