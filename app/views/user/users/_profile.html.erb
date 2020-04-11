@@ -1,0 +1,38 @@
+<table class="profile">
+	<tr>
+		<%= attachment_image_tag user, :profile_image, :size =>'100x100', fallback: "avator.svg" %>
+	</tr>
+
+	<tr>
+		<th><%= user.username %></th>
+	</tr>
+
+	<!-- current_userのみ情報編集できる -->
+	<% if user == current_user %>
+		<tr>
+			<th><%= link_to "情報編集する", edit_user_path(current_user), class:"btn edit-user", style:"color: #fff; font-size: 15px;" %></th>
+			<th></th>
+		</tr>
+	<% end %>
+	<!-- ここまで -->
+
+	<tr>
+		<th>フォロー数</th>
+		<th></th>
+	</tr>
+
+	<tr>
+		<th>フォロワー数</th>
+		<th></th>
+	</tr>
+
+	<tr>
+		<th>自己紹介文</th><br>
+		<td><%= user.introduction %></td>
+	</tr>
+
+	<tr>
+		<th>タグ</th>
+		<th></th>
+	</tr>
+</table>

@@ -1,8 +1,14 @@
 class User::PostsController < ApplicationController
   def index
+  	@user = User.find(current_user.id)
+  	@posts = Post.all
   end
 
   def show
+   	@user = User.find(current_user.id)
+  	@post = Post.find(params[:id])
+    @post_comments = @post.post_comments
+    @post_comment = PostComment.new
   end
 
   def create
