@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'contacts/edit' => 'user/contacts#edit'
   get 'contacts/thanks' => 'user/contacts#thanks'
   get 'mcs' => 'user/tops#top'
-  resources :users, only: [:index, :edit, :update], module: 'user' do
+  resources :users, only: [:index, :show, :edit, :update], module: 'user' do
     resource :relationships, only: [:index, :create, :destroy]
   end
   put 'users/hide' => 'user/users#hide'

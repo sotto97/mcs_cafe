@@ -22,21 +22,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- 以下の記述はLOGO.imgに変更 -->
-          <%=link_to "MCS Cafe", root_path, class:"navbar-brand"%>
         </div>
+
         <div class="collapse navbar-collapse" id="navbarEexample">
           <!-- ログインしていないvisitor用のnav pathは後ほど.jsの記述に変更 -->
+          <!-- ユーザーがサインインしている場合のナビ -->
           <% if user_signed_in? %>
+            <%=link_to "MCS Cafe", mcs_path, class:"navbar-brand"%>
             <ul class="nav navbar-nav navbar-right header-nav">
-              <li class="nav-item"><%= link_to "会員情報", users_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to "タイムライン", posts_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to "カレンダー", users_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to "チャット", users_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to "お問い合わせ", new_contact_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, class:"nav-link", method: :delete %></li>
+              <li class="nav-item-user"><%= link_to "マイページ", user_path(current_user), class:"nav-link user" %></li>
+              <li class="nav-item-user"><%= link_to "タイムライン", posts_path, class:"nav-link user" %></li>
+              <li class="nav-item-user"><%= link_to "カレンダー", users_path, class:"nav-link user" %></li>
+              <li class="nav-item-user"><%= link_to "チャット", users_path, class:"nav-link user" %></li>
+              <li class="nav-item-user"><%= link_to "お問い合わせ", new_contact_path, class:"nav-link user" %></li>
+              <li class="nav-item-user"><%= link_to "ログアウト", destroy_user_session_path, class:"nav-link user", method: :delete %></li>
             </ul>
           <% else %>
+            <!-- visitorの場合のナビ -->
+            <!-- 以下の記述はLOGO.imgに変更 -->
+            <%=link_to "MCS Cafe", root_path, class:"navbar-brand"%>
             <ul class="nav navbar-nav navbar-right header-nav">
               <li class="nav-item"><%= link_to "About", about_path, class:"nav-link" %></li>
               <li class="nav-item"><%= link_to "ニュース", about_path, class:"nav-link" %></li>
@@ -46,6 +50,7 @@
               <li class="nav-item"><%= link_to "ログイン", new_user_session_path, class:"nav-link" %></li>
             </ul>
           <% end %>
+
         </div>
       </div>
     </nav>
