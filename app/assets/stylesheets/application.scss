@@ -61,10 +61,32 @@
 	opacity: 0.9;
 }
 
+/*ログイン後のfooter*/
+
+.nav-item-user{
+	padding: 0 30px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.6%, ease;
+}
+
+.nav-item-user:hover{
+	background-color: #32be8f;
+	color: #fff;
+}
+
+.nav-link{
+	transition: 0.5s ease;
+}
+
+.navbar-nav .nav-item-user .nav-link:hover{
+	color: #fff;
+}
+
 footer{
 	position: relative;
 	height: 100px;
-	height: 100px; width: 100%;
+	width: 100%;
 	background-color: #eee;
 }
 

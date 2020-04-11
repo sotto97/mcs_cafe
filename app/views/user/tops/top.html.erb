@@ -1,2 +1,16 @@
-<h1>User::Tops#top</h1>
-<p>Find me in app/views/user/tops/top.html.erb</p>
+<section class="welcome">
+	<div class="container" style="text-align: center">
+	  <%= link_to "Welcome to MCS Community", posts_path, class:"top-title" %>
+	</div>
+</section>
+
+<style>
+	.welcome{
+		position: relative;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('social.png') %>");
+		height: 80vh;
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+</style>
+
