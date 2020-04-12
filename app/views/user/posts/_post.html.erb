@@ -2,7 +2,7 @@
 	<table>
 		<tr>
 			<%= link_to(post.user) do %>
-				<%= attachment_image_tag(post.user, :profile_image, :size =>'60x60', fallback: "avator.svg") %>
+				<%= attachment_image_tag(post.user, :profile_image, :size =>'50x50', fallback: "avator.svg") %>
 			<% end %>
 		</tr>
 		<th><%= post.user.username %></th>
@@ -11,8 +11,14 @@
 	</table>
 	<table class="fav" style="margin: 0 auto">
 		<tr>
-			<th><%= render "user/favorites/favorite", post: post %></th>
-			<th>コメント数：<%= post.post_comments.count %></th>
+			<th class="favorite-form_<%= post.id %>">
+				<%= render partial: "user/favorites/favorite", locals: {post: post} %>
+			</th>
+			<th>
+				<%= link_to post do %>
+					コメント数：<%= post.post_comments.count %>
+				<% end %>
+			</th>
 		</tr>
 	</table>
 </div>
