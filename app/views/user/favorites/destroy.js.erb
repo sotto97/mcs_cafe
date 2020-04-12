@@ -1,0 +1,1 @@
+$(".favorite-form_<%= @post.id %>").html("<%= j(render partial: 'user/favorites/favorite', locals: {post: @post}) %>");

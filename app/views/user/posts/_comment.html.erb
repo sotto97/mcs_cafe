@@ -1,0 +1,18 @@
+<h3 style="text-align: center">コメント一覧</h3>
+	<% post.post_comments.each do |post_comment| %>
+	<div class="comment-all">
+		<table>
+				<tr><%= post_comment.comment %></tr>
+				<tr>
+					<%= attachment_image_tag(post_comment.user, :profile_image, :size =>'50x50', fallback: "avator.svg") %>
+					<%= post_comment.user.username %>
+				</tr>
+				<tr>
+					<% if post_comment.user == current_user %>
+					<!-- コメントをハンバーガーメニューに -->
+					<%= link_to "コメントを削除", post_post_comments_path(post_comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{post_comment.id}" %>
+					<% end %>
+				</tr>
+		</table>
+	</div>
+	<% end %>

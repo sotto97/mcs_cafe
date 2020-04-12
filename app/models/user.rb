@@ -10,10 +10,27 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :skills, dependent: :destroy
+  # ユーザーのprofile_imageの実装
   attachment :profile_image, destroy: false
-  # フォロー昨日の実装時に使用
-  # has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
-  # has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
-  # has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
-  # has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+
+  # フォロー機能
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
+  # 自分をフォローしている人
+  has_many :following, through: :following_relationships
+  has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+  # 自分がフォローしている人
+  has_many :followers, through: :follower_relationships
+
+  #フォローしているかを確認するメソッド
+  def following?(user)
+    following_relationships.find_by(following_id: user.id)
+  end
+  #フォローするときのメソッド
+  def follow(user)
+    following_relationships.create!(following_id: user.id)
+  end
+  #フォローを外すときのメソッド
+  def unfollow(user)
+    following_relationships.find_by(following_id: user.id).destroy
+  end
 end
