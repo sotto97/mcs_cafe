@@ -5,7 +5,6 @@ class User::PostCommentsController < ApplicationController
     # @post_comment.post_id = @post.id　# この記述が無いとcommentとpostが紐づけられない
   	@post_comment.user_id = current_user.id
   	@post_comment.save
-  	redirect_to post_path(@post)
   end
 
   def destroy
@@ -15,7 +14,6 @@ class User::PostCommentsController < ApplicationController
       redirect_to request.referer
     end
     @post_comment.destroy
-    redirect_to post_path(@post)
   end
 
   private

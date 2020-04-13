@@ -20,8 +20,7 @@
 }
 
 .profile{
-  background-color: #eee;
-  border: 0.5px solid black;
+  background-color: #efefef;
 }
 
 .profile li{
@@ -54,4 +53,110 @@
 .user-post a{
   text-decoration: none;
   color: black;
+}
+
+.notice-user{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #BE3232;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*edit-user*/
+
+.field{
+  padding-bottom: 20px;
+}
+
+.field-image{
+  padding: 10px 0 20px 0;
+}
+
+.field-image input{
+  width: 96%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.image .user-image{
+  width: auto;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .back-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: grey;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .update-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .withdraw-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #BE3232;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .edit{
+  font-size: 15px;
+}
+
+.field .introduction{
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
 }

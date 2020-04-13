@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :user do
+    get 'notices/new'
+    get 'notices/create'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'user/homes#top'
 
@@ -20,11 +24,10 @@ Rails.application.routes.draw do
     member do
         get :following, :followers
     end
+    resources :notices, only: [:new, :create]
   end
   resources :relationships, only: [:index, :create, :destroy], module: 'user'
   put 'users/hide' => 'user/users#hide'
-  get 'notices' => 'user/users#notice'
-  post 'notices' => 'user/users#create'
   get 'searches' => 'user/searches#search'
   resources :posts, only: [:index, :show, :create, :destroy], module: 'user' do
     resource :post_comments, only: [:create, :destroy]

@@ -1,7 +1,7 @@
 class User::PostsController < ApplicationController
   def index
   	@user = User.find(current_user.id)
-  	@posts = Post.all
+  	@posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -21,12 +21,15 @@ class User::PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
   end
 
   private
 
   def post_params
-    params.permit(:body)
+    params.permit(:body, :image)
   end
 
 end
