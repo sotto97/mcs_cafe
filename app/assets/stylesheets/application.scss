@@ -61,7 +61,7 @@
 	opacity: 0.9;
 }
 
-/*ログイン後のfooter*/
+/*ログイン後のheader*/
 
 .nav-item-user{
 	padding: 0 30px;
@@ -174,6 +174,110 @@ i{
   outline: none;
   border: none;
   background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* adminログイン後のheader */
+
+
+.nav-item-admin{
+  padding: 0 30px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.6%, ease;
+}
+
+.nav-item-admin:hover{
+  background-color: #6B32BE;
+  color: #fff;
+}
+
+.nav-link{
+  transition: 0.5s ease;
+}
+
+.navbar-nav .nav-item-admin .nav-link:hover{
+  color: #fff;
+}
+
+footer{
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background-color: #eee;
+}
+
+footer p{
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  text-align: center;
+  font-size: 15px;
+}
+
+body{
+  padding-top: 50px;
+}
+
+/* adminログイン画面 */
+
+/*ログイン・サインインのレイアウト*/
+
+.admin-login-form{
+  width: 100%;
+  height: 530px;
+  padding-top: 100px;
+}
+
+.field{
+  padding-top: 10px;
+}
+
+i{
+  color: grey;
+}
+
+.field div input{
+  width: 93%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.field > input{
+  width: 90%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.actions .admin-login {
+  width: 100%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 1rem 0;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: #2E3892;
   cursor: pointer;
   text-decoration: none;
 }

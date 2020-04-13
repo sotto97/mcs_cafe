@@ -37,6 +37,17 @@
               <li class="nav-item-user"><%= link_to "お問い合わせ", new_contact_path, class:"nav-link user" %></li>
               <li class="nav-item-user"><%= link_to "ログアウト", destroy_user_session_path, class:"nav-link user", method: :delete %></li>
             </ul>
+          <% elsif admin_signed_in? %>
+            <%=link_to "MCS Cafe Admin", admin_home_path, class:"navbar-brand"%>
+            <ul class="nav navbar-nav navbar-right header-nav">
+              <li class="nav-item-admin"><%= link_to "ニュース一覧", admin_news_index_path, class:"nav-link admin" %></li>
+              <li class="nav-item-admin"><%= link_to "会員一覧", admin_users_path, class:"nav-link admin" %></li>
+              <li class="nav-item-admin"><%= link_to "お問い合わせ一覧", admin_contacts_path, class:"nav-link admin" %></li>
+              <li class="nav-item-admin"><%= link_to "メニュー変更", admin_menus_path, class:"nav-link admin" %></li>
+              <li class="nav-item-admin"><%= link_to "ログアウト", destroy_admin_session_path, class:"nav-link admin", method: :delete %></li>
+            </ul>
+          <% elsif current_page?(new_admin_session_path) %>
+            <%=link_to "MCS Cafe Admin", new_admin_session_path, class:"navbar-brand"%>
           <% else %>
             <!-- visitorの場合のナビ -->
             <!-- 以下の記述はLOGO.imgに変更 -->
