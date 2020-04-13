@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :skills, dependent: :destroy
+  has_many :notices, dependent: :destroy
   # ユーザーのprofile_imageの実装
   attachment :profile_image, destroy: false
 

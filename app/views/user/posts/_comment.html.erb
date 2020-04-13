@@ -1,18 +1,30 @@
 <h3 style="text-align: center">コメント一覧</h3>
-	<% post.post_comments.each do |post_comment| %>
-	<div class="comment-all">
-		<table>
-				<tr><%= post_comment.comment %></tr>
-				<tr>
-					<%= attachment_image_tag(post_comment.user, :profile_image, :size =>'50x50', fallback: "avator.svg") %>
-					<%= post_comment.user.username %>
-				</tr>
+<% post.post_comments.each do |post_comment| %>
+<div class="comment-all">
+	<div class="row">
+			<div class="col-xs-2">
+			<table>
 				<tr>
 					<% if post_comment.user == current_user %>
 					<!-- コメントをハンバーガーメニューに -->
-					<%= link_to "コメントを削除", post_post_comments_path(post_comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{post_comment.id}" %>
+					<%= link_to "", post_post_comments_path(post_comment), method: :delete, data: {confirm: "コメントを削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px;" %>
 					<% end %>
 				</tr>
+			</table>
+		</div>
+		<div class="col-xs-8">
+		<table>
+				<tr><%= post_comment.comment %></tr>
 		</table>
+		</div>
+		<div class="col-xs-2">
+			<table style="margin: 0 auto;">
+				<tr>
+					<%= attachment_image_tag(post_comment.user, :profile_image, :size =>'50x50', fallback: "avator.svg", style:"border-radius: 50%;") %>
+				</tr>
+				<th><%= post_comment.user.username %></th>
+			</table>
+		</div>
 	</div>
-	<% end %>
+</div>
+<% end %>

@@ -1,14 +1,40 @@
 <div class="user-post">
-	<table>
-		<tr>
-			<%= link_to(post.user) do %>
-				<%= attachment_image_tag(post.user, :profile_image, :size =>'50x50', fallback: "avator.svg") %>
-			<% end %>
-		</tr>
-		<th><%= post.user.username %></th>
-		<tr><%= link_to post.body, post %></tr>
-		<tr><%= post.image_id %></tr>
-	</table>
+	<div class="row">
+		<div class="col-xs-2">
+		<table style="margin: 0 auto;">
+			<tr>
+				<%= link_to(post.user) do %>
+					<%= attachment_image_tag(post.user, :profile_image, :size =>'50x50', fallback: "avator.svg",class: "img-circle") %>
+				<% end %>
+			</tr>
+			<th><%= post.user.username %></th>
+		</table>
+		</div>
+		<div class="col-xs-8">
+		<table>
+			<tr><%= link_to post.body, post %></tr>
+			<tr><%= attachment_image_tag(post.image_id, :image, :size =>'50x100') %></tr>
+		</table>
+		</div>
+		<div class="col-xs-2">
+			<table>
+				<tr>
+					<% if post.user == current_user %>
+						<!-- コメントをハンバーガーメニューに -->
+<!-- 						<div class="hidden_box">
+						    <input type="checkbox" id="label">
+						    <label for="label"><i class="fas fa-ellipsis-h"></i></label>
+						    <div class="hidden_show"> -->
+						      <!--非表示ここから-->
+									<%= link_to "", post_path(post), method: :delete, data: {confirm: "投稿を削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px;" %>
+									<!--ここまで-->
+	<!-- 					    </div>
+						</div> -->
+					<% end %>
+				</tr>
+			</table>
+		</div>
+	</div>
 	<table class="fav" style="margin: 0 auto">
 		<tr>
 			<th class="favorite-form_<%= post.id %>">
@@ -26,5 +52,40 @@
 <style>
 	.fav th{
 		padding: 0 10px;
+	}
+
+	/*ボタン装飾*/
+	.hidden_box label {
+	    padding: 10px;
+	    cursor :pointer;
+	    transition: .5s;
+	}
+
+	/*アイコンを表示*/
+	.hidden_box label:before {
+	    display: inline-block;
+	    font-family: 'FontAwesome';
+	    padding-right: 5px;
+	    transition: 0.2s;
+	}
+	/*チェックは見えなくする*/
+	.hidden_box input {
+	    display: none;
+	}
+
+	/*中身を非表示にしておく*/
+	.hidden_box .hidden_show {
+	    height: 0;
+	    padding: 0;
+	    overflow: hidden;
+	    opacity: 0;
+	}
+
+	/*クリックで中身表示*/
+	.hidden_box input:checked + label + .hidden_show {
+	    padding: 0 10px;
+	    display: inline-block;
+	    height: auto;
+	    opacity: 1;
 	}
 </style>

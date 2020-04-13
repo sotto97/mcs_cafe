@@ -1,6 +1,6 @@
-<ul class="profile">
+<ul class="profile" style="box-shadow: 5px 5px 5px #eee;">
 	<li>
-		<%= attachment_image_tag user, :profile_image, :size =>'100x100', fallback: "avator.svg" %>
+		<%= attachment_image_tag user, :profile_image, :size =>'100x100', format: 'jpeg''jpg''svg''png', fallback: "avator.svg", class: "img-circle" %>
 	</li>
 
 	<li><h4><strong><%= user.username %></strong></h4></li>
@@ -34,7 +34,14 @@
 	</li>
 
 	<li>
-		<h4>タグ</h4>
+		<h4>スキルタグ</h4>
 		<p><%#= ここに保有スキルを記載 %></p>
+	</li>
+
+	<li>
+		<!-- current_userは自分を通報できない -->
+		<% if user_signed_in? && @user != current_user %>
+			<%= link_to "通報する", new_user_notice_path(@user), class:"btn notice-user", style:"color: #fff; font-size: 15px;" %>
+		<% end %>
 	</li>
 </ul>

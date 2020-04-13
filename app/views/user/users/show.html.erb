@@ -3,17 +3,10 @@
 
 		<!-- 左側のページ -->
 		<div class="col-xs-7 col-xs-offset-1" style="padding-bottom: 30px;">
-			<!-- 新規投稿フォーム 非同期通信予定 -->
-			<!-- current_userのみ情報編集できる -->
-			<% if @user == current_user %>
-				<div class="new-post">
-				<%= form_with(model: @post, local: true, url: posts_path) do |f| %>
-					<%= f.text_area :body, class:"form-control new-post", style:"width: 70%; height:50px;", placeholder:"何を共有したいですか？" %>
-					<%= f.submit :投稿する, class:"btn create-post", style:"color: #fff; font-size: 15px;" %>
-				<% end %>
-				</div>
-			<% end %>
-			<!-- ここまで -->
+			<!-- 新規投稿フォーム 非同期通信済 -->
+			<div class="post-form_<%= @post %>">
+				<%= render partial: 'new_post', locals: {post: @post} %>
+			</div>
 
 			<!-- ユーザーの投稿一覧 -->
 			<% @posts.each do |post| %>
@@ -25,6 +18,7 @@
 		<div class="col-xs-3" style="padding-bottom: 30px;">
 			<%= render 'profile', user: @user %>
 		</div>
+		<!-- current_userのみ情報編集できる -->
 
 	</div>
 </div>

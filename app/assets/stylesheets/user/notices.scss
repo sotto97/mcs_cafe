@@ -1,0 +1,23 @@
+// Place all the styles related to the user::notices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-notice{
+	margin: 0 auto;
+}
+
+.new-notice .create-notice{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}

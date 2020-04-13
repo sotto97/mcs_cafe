@@ -4,7 +4,7 @@ class User::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.all
+    @posts = @user.posts.all.order(created_at: :desc)
   end
 
   def edit
@@ -38,14 +38,16 @@ class User::UsersController < ApplicationController
   end
 
   def notice
+
   end
 
   def create
+
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email ,:first_name, :last_name, :first_name_kana, :last_name_kana, :username, :profile_image_id, :address, :introduction, :age, :job)
+    params.require(:user).permit(:email ,:first_name, :last_name, :first_name_kana, :last_name_kana, :username, :profile_image, :address, :introduction, :age, :job)
   end
 end

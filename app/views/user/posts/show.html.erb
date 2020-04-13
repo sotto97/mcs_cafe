@@ -4,12 +4,13 @@
 		<!-- 左側のページ -->
 		<div class="col-xs-7 col-xs-offset-1" style="padding-bottom: 30px;">
 			<h3 style="text-align: center">投稿</h3>
-
-			<!-- ユーザーの投稿一覧 -->
+			<!-- ユーザーの投稿 -->
 			<%= render 'post', post: @post %>
 
 			<!-- コメント一覧 -->
-			<%= render 'comment', post: @post %>
+			<div class="comment-form_<%= @post.id %>">
+				<%= render partial: 'comment', locals: {post: @post} %>
+			</div>
 
 			<!-- コメント入力フォーム -->
 			<%= render 'comment_form', post: @post %>
