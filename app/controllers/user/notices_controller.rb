@@ -15,6 +15,6 @@ class User::NoticesController < ApplicationController
   end
   private
   def notice_params
-    params.permit(:user_id, :body)
+    params.permit(:user_id, :username, :body)
   end
 end
