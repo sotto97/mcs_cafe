@@ -1,2 +1,39 @@
-<h1>Admin::Notices#index</h1>
-<p>Find me in app/views/admin/notices/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<h2 style="text-align: center;">通報通達一覧</h2>
+				<div class="notice-all">
+					<table class="table">
+						<thead>
+							<tr class="notice-head">
+								<th width="15%">通報ID</th>
+								<th width="15%">ユーザーID</th>
+								<th width="30%">ユーザー名</th>
+								<th width="40%">通報理由</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @notices.each do |notice| %>
+								<tr>
+									<td><%=link_to notice.id, admin_notice_path(notice) %></td>
+									<td><%= notice.user_id %></td>
+									<td><%= notice.username %></td>
+									<td><%= notice.body %></td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</div>
+
+<style>
+	.notice-all a{
+		text-decoration: none;
+	}
+
+	.notice-head th{
+		text-align: center;
+	}
+</style>
