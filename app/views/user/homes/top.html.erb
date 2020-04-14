@@ -19,13 +19,14 @@
 				<tr>
 					<td>営業時間のお知らせです。</td>
 				</tr>
-				<!-- adminで登録した記事を見る機能だが、会員で記事を作ってからの実装 -->
-				<%# @news.each do |news| %>
+				<!-- adminで登録した記事を見る機能 -->
+				<% @newses.each do |news| %>
 					<tr>
-						<td><%#= news.body %></td>
+						<td><%= news.title %></td>
+						<td><%= news.body %></td>
 					</tr>
-					<!-- 後にgem "kaminari" をいれてpagination -->
-				<%# end %>
+				<!-- 後にgem "kaminari" をいれてpaginationするか もっと見るボタンを作る -->
+				<% end %>
 			</div>
 		</div>
 	</div>

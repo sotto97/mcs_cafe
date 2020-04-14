@@ -49,7 +49,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'home' => 'homes#top'
     resources :notices, only: [:index, :show]
-    resources :news, only: [:index, :show, :create]
+    resources :news, only: [:index, :create]
+    get 'news/confirm' => 'news#confirm'
     resources :users, only: [:index, :show, :update] do
        get 'relationship' => 'users#relationships'
     end
