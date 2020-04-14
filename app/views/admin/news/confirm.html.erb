@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+
+			<h2 style="text-align: center;">ニュース新規投稿内容確認</h2>
+			<div class="news-form">
+				<div class="row">
+					<%= form_with(model: @news_new, local: true, url: admin_news_index_path, method: :post) do |f| %>
+							<%= f.hidden_field :admin_id %>
+						<div class="col-xs-3 news-form">
+							<%= f.hidden_field :title %>
+							<%= "#{@news_new.title}" %>
+						</div>
+
+						<div class="col-xs-7 news-form">
+							<%= f.hidden_field :body %>
+							<%= "#{@news_new.body}" %>
+						</div>
+
+						<div class="col-xs-2 actions">
+							<!-- 'back'というactionをNews:controllerに追加 -->
+							<%= f.submit :入力画面に戻る, name: 'back', class:"btn news" %>
+							<%= f.submit :投稿する, class:"btn create-news" %>
+						</div>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>

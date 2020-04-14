@@ -1,2 +1,77 @@
-<h1>Admin::News#index</h1>
-<p>Find me in app/views/admin/news/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+
+			<h2 style="text-align: center;">ニュース新規投稿</h2>
+			<div class="create-news-form">
+				<div class="row">
+					<%= form_with(model: @news_new, local: true, url: admin_news_confirm_path, method: :get) do |f| %>
+
+						<div class="col-xs-3">
+							<%= f.text_field :title, class:"form-control news-title" %>
+						</div>
+
+						<div class="col-xs-7">
+							<%= f.text_area :body, class:"form-control news-body" %>
+						</div>
+
+						<div class="col-xs-2">
+							<%= f.submit :投稿する, class:"btn create-news" %>
+						</div>
+
+					<% end %>
+				</div>
+			</div>
+
+			<div class="news-all">
+			<h2 style="text-align: center;">ニュース一覧</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th width="30%">タイトル</th>
+							<th width="70%">投稿内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @newses.each do |news| %>
+							<tr>
+								<td><%= news.title %></td>
+								<td><%= news.body %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+	.create-news-form{
+		position: relative;
+		height: auto;
+	}
+
+	.create-news-form .news-body{
+		height: 200px;
+	}
+
+	.create-news-form .btn{
+		position: absolute;
+		width: auto;
+		height: auto;
+		background-size: 200%;
+		display: block;
+		text-align: center;
+		line-height: 200%;
+		border-radius: 10px;
+		font-size: 15px;
+		outline: none;
+		border: none;
+		background-color: #333;
+		cursor: pointer;
+		text-decoration: none;
+		color: #fff;
+	}
+</style>
