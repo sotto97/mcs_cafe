@@ -1,21 +1,20 @@
-<section class="about">
+<section class="top-content about element js-animation">
 	<div class="explain">
-		<span>ABOUT US</span>
 		<P>MCS Cafeはカフェ兼コワーキンングスペースとしても利用できるカフェです<br>
 			ユーザー登録をすれば、MCS Cafeの良さをもっと知っていただけます。
 		</P>
-	  <%= link_to "もっと詳しく知る", about_path, style:"color: #fff;" %>
+	  <%= link_to "もっと詳しく知る＞＞", about_path, style:"color: #fff;" %>
 	</div>
 </section>
 
-<section class="news">
+<section class="content news element js-animation" id="news">
 	<div class="container">
 		<div class="row">
 			<!-- 左のnewsの画像入れる予定 -->
-			<div class="col-xs-7">
-				<div class="box" style="width: 100%; height: 500px; background-color: #2E3892;"></div>
+			<div class="col-xs-6">
+				<div class="box" style="width: 100%; height: 500px;"></div>
 			</div>
-			<div class="col-xs-5">
+			<div class="col-xs-6">
 				<h2>NEWS</h2>
 				<tr>
 					<td>営業時間のお知らせです。</td>
@@ -32,11 +31,13 @@
 	</div>
 </section>
 
-<section class="menu">
-	<div class="container">
+<section class="content menu element js-animation" style="margin-top: 30px; width: 100%; height: 600px;">
+	<div class="container" style="text-align: center; color: #fff;">
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="menu-img" style="width: 100%; height: 600px; background-color: #2E3892;">
+				<h2>MENU</h2>
+				<div class="menu-img">
+					<p>現在作成中</p>
 					<!-- ここにmenuのファイルを貼る -->
 				</div>
 			</div>
@@ -44,10 +45,10 @@
 	</div>
 </section>
 
-<section class="place">
+<section class="content place element js-animation">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-5" style="text-align: center;">
+			<div class="col-xs-6" style="text-align: center;">
 				<h2>MCS Cafe</h2>
 				<h4>-営業時間-</h4>
 				<p>朝5時〜昼2時</p>
@@ -60,21 +61,59 @@
 				<h4>-住所-</h4>
 				<p>大阪府大阪市下村3丁目35-4</p>
 			</div>
-			<div class="col-xs-7">
+			<div class="col-xs-6">
 				<!-- 左のnewsの画像入れる予定 -->
-				<div class="box" style="width: 100%; height: 500px; background-color: #2E3892;"></div>
+				<div class="box" style="width: 100%; height: 500px;"></div>
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="contact">
+<section class="content contact element js-animation">
+	<h2 style="text-align: center; color: #fff;">Contact</h2>
 	<div class="content">
-		<h2>お問い合わせ</h2>
-	  <%= link_to "お問い合わせはこちらから", new_contact_path, style:"color: #fff;" %>
+	  <%= link_to "お問い合わせはこちらから＞＞", new_contact_path, style:"color: #fff;" %>
 	</div>
 </section>
 
 <style>
+	.about{
+		position: relative;
+		height: 640px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
 
+	.news .box{
+		position: relative;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('morning2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	.menu{
+	position: relative;
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('coffee beans.jpg') %>");
+	background-size: cover;
+	background-position: bottom;
+	}
+
+	.place .box{
+		position: relative;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('coffees.jpg') %>");
+		background-size: cover;
+		background-position: center;
+	}
+
+	.contact{
+		margin-top: 30px;
+		position: relative;
+		height: 540px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop3.jpg') %>");
+		background-size: cover;
+		background-position: center;
+	}
 </style>
