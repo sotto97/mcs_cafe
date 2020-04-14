@@ -2,15 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* root画面のscss */
+/* background-imageは.htmlに記載 */
+
 section{
 	padding-top: 30px;
-}
-
-.about{
-	position: relative;
-	height: 500px;
-	width: 100%;
-	background-color: #2E3892;
 }
 
 .about .explain{
@@ -21,18 +17,40 @@ section{
 	transform : translate(-50%,-50%);
 	text-align: center;
 	color: #fff;
+	border: 1px solid #fff;
+	padding: 25px;
+}
+
+.about .explain:hover{
+	text-decoration: none;
+	background-color: rgba(46,56,146,0.5);
+	transition: 0.5s ease;
+	color: #fff;
+	opacity: 1;
 }
 
 .place h4{
 	padding-top: 15px;
 }
 
-.contact{
-	margin-top: 30px;
-	position: relative;
-	height: 550px;
-	width: 100%;
-	background-color: #2E3892;
+.contact .content{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 25px;
+}
+
+.contact .content:hover{
+	text-decoration: none;
+	background-color: rgba(46,56,146,0.5);
+	transition: 0.5s ease;
+	color: #fff;
+	opacity: 1;
 }
 
 .contact .content{
@@ -45,6 +63,8 @@ section{
 	color: #fff;
 }
 
+/* aboutのページ */
+
 .caption{
 	text-align: center;
 	padding-top: 50px;
@@ -54,7 +74,7 @@ section{
 .caption-footer .btn{
 	width: 200px;
 	height: 80px;
-	background-color: #00BF3E;
+	background-color: #32be8f;
 	padding-top: 20px;
 }
 
@@ -80,4 +100,18 @@ section{
 	left: 50%;
 	transform : translate(-50%,-50%);
 	text-align: center;
+}
+
+/* js 対応の記載 */
+
+.js-animation {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: all 1s;
+}
+.js-animation.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
 }
