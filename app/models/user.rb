@@ -14,6 +14,8 @@ class User < ApplicationRecord
   # ユーザーのprofile_imageの実装
   attachment :profile_image, destroy: false
 
+  # menuのimageの記述
+
   # フォロー機能
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship",  dependent: :destroy
   # 自分をフォローしている人

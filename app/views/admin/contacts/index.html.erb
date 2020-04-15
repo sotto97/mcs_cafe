@@ -1,2 +1,39 @@
-<h1>Admin::Contacts#index</h1>
-<p>Find me in app/views/admin/contacts/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+
+			<div class="contact-all">
+			<h2 style="text-align: center;">お問い合わせ一覧</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th width="30%">タイトル・返信ステータス</th>
+							<th width="70%">投稿内容</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @contacts.each do |contact| %>
+							<tr>
+								<tr>
+									<td><%= link_to contact.title, admin_contact_path(contact.id) %></td>
+									<td><%= contact.body %></td>
+								</tr>
+								<!-- 返信ステータスのデフォルトはfalse(未返信) -->
+								<% if contact.is_deleted == false %>
+									<td>未返信</td>
+								<% else %>
+									<td>返信済</td>
+								<% end %>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>

@@ -39,7 +39,10 @@
 				<h2>MENU</h2>
 				<div class="menu-img">
 					<p>現在作成中</p>
-					<!-- ここにmenuのファイルを貼る -->
+					<!-- JavaScriptで画像をスライドさせる -->
+					<% @menus.each do |menu| %>
+						<%= attachment_image_tag menu, :menu_image, size: "800x450" %>
+					<% end %>
 				</div>
 			</div>
 		</div>

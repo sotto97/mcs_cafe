@@ -1,3 +1,4 @@
 class Menu < ApplicationRecord
-	belongs_to :admin
+  attachment :menu_image, destroy: false
+  validates :menu_image, presence: true
 end

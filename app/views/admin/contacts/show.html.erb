@@ -1,2 +1,69 @@
-<h1>Admin::Contacts#show</h1>
-<p>Find me in app/views/admin/contacts/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+
+			<div class="contact-detail">
+			<h2 style="text-align: center;">お問い合わせ詳細</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th width="30%">タイトル・返信ステータス</th>
+							<th width="70%">投稿内容</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<tr>
+									<td><%= @contact.title %></td>
+									<td><%= @contact.body %></td>
+								</tr>
+								<!-- 返信ステータスのデフォルトはfalse(未返信) -->
+								<% if @contact.is_deleted == false %>
+									<td>未返信</td>
+								<% else %>
+									<td>返信済</td>
+								<% end %>
+							</tr>
+					</tbody>
+				</table>
+				<table class="table">
+					<tbody>
+						<%= form_with(model: @contact_reply, local: true, url: admin_contact_path, method: :put) do |f| %>
+							<tr>
+								<td>返信</td>
+								<td><%= f.select :is_deleted, [["返信済",true], ["未返信",false]], include_blank:"選択してください", class:"form-control" %></td>
+								<td><%= f.submit "返信する", class:"btn reply-contact" %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+	.contact-detail{
+		position: relative;
+		height: auto;
+	}
+
+	.contact-detail .btn{
+		position: absolute;
+		width: auto;
+		height: auto;
+		background-size: 200%;
+		display: block;
+		text-align: center;
+		line-height: 200%;
+		border-radius: 10px;
+		font-size: 15px;
+		outline: none;
+		border: none;
+		background-color: #333;
+		cursor: pointer;
+		text-decoration: none;
+		color: #fff;
+	}
+</style>
