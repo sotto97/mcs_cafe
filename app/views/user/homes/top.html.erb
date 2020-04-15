@@ -16,15 +16,10 @@
 			</div>
 			<div class="col-xs-6">
 				<h2>NEWS</h2>
-				<tr>
-					<td>営業時間のお知らせです。</td>
-				</tr>
 				<!-- adminで登録した記事を見る機能 -->
 				<% @newses.each do |news| %>
-					<tr>
-						<td><%= news.title %></td>
-						<td><%= news.body %></td>
-					</tr>
+					<h5><strong><%= news.title %></strong></h5>
+					<p><%= news.body %></p>
 				<!-- 後にgem "kaminari" をいれてpaginationするか もっと見るボタンを作る -->
 				<% end %>
 			</div>
@@ -38,11 +33,14 @@
 			<div class="col-xs-12">
 				<h2>MENU</h2>
 				<div class="menu-img">
-					<p>現在作成中</p>
 					<!-- JavaScriptで画像をスライドさせる -->
-					<% @menus.each do |menu| %>
-						<%= attachment_image_tag menu, :menu_image, size: "800x450" %>
-					<% end %>
+							<ul class="bxslider">
+								<% @menus.each do |menu| %>
+								<li>
+									<%= attachment_image_tag menu, :menu_image %>
+								</li>
+								<% end %>
+							</ul>
 				</div>
 			</div>
 		</div>
@@ -120,4 +118,5 @@
 		background-size: cover;
 		background-position: center;
 	}
+
 </style>

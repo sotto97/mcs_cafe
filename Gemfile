@@ -70,4 +70,4 @@ gem 'pry-byebug'
 gem 'cancancan'
 gem 'rubocop', require: false
 gem "font-awesome-rails"
-
+gem 'bxslider-rails'
