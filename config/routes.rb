@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'home' => 'homes#top'
     resources :notices, only: [:index, :show]
-    resources :news, only: [:index, :create]
+    resources :news, only: [:index, :create, :destroy]
     get 'news/confirm' => 'news#confirm'
     resources :users, only: [:index, :show, :update] do
        get 'relationship' => 'users#relationships'
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     get 'searches' => 'searches#search'
     # contactsの返信はcreateで合っているのか？
     resources :contacts, only: [:index, :show, :create, :update]
-    resources :menus, only: [:index, :create, :update]
+    resources :menus, only: [:index, :create, :update, :destroy]
   end
 
 end
