@@ -1,2 +1,44 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<h2 style="text-align: center;">ユーザー詳細</h2>
+			<div class="">ユーザー検索</div>
+
+				<!-- ここに検索フォームを実装 -->
+
+				<div class="user-all">
+					<table class="table">
+						<thead>
+							<tr class="notice-head">
+								<th width="20%">ユーザーID</th>
+								<th width="30%">ユーザー名</th>
+								<th width="30%">ユーザーステータス</th>
+								<th width="15%"></th>
+							</tr>
+						</thead>
+						<tbody>
+						<%= form_with(model: @user, local: true, url: admin_user_path, method: :put) do |f| %>
+							<tr>
+								<td><%= @user.id %></td>
+								<td><%= @user.username %></td>
+								<td><%= @user.following.count %>:following<br><%= @user.followers.count %>follower</td>
+								<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->
+								<td><%= f.radio_button :is_deleted, false %> 有効　<%= f.radio_button :is_deleted, true %> 退会</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td><%= f.submit "変更する", class:"btn" %></td>
+							</tr>
+						<% end %>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>

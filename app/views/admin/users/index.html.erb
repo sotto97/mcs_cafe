@@ -1,2 +1,40 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<h2 style="text-align: center;">ユーザー一覧</h2>
+			<div class="">ユーザー検索</div>
+				<!-- ここに検索フォームを実装 -->
+				<div class="user-all">
+					<table class="table">
+						<thead>
+							<tr class="notice-head">
+								<th width="20%">ユーザーID</th>
+								<th width="30%">ユーザー名</th>
+								<th width="25%">フォロー関係</th>
+								<th width="25%">ユーザーステータス</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @users.each do |user| %>
+								<tr>
+									<td><%=link_to user.id, admin_user_path(user) %></td>
+									<td><%= user.username %></td>
+									<td><%= user.following.count %>:following<br><%= user.followers.count %>follower</td>
+									<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->
+									<% if user.is_deleted == false %>
+										<td>有効</td>
+									<% else %>
+										<td>退会</td>
+									<% end %>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>
