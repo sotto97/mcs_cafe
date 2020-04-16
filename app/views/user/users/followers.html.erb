@@ -1,0 +1,49 @@
+<div class="container" style="text-align: center; position: relative; height: 80vh;">
+	<div class="row">
+		<h2 style="text-align: center;">フォロワー一覧</h2>
+		<div class="col-xs-8 col-xs-offset-2">
+			<!-- ユーザーが誰からももフォローされていない場合は<p>を表示 -->
+			<% if @user.followers.count == 0 %>
+				<div style="text-align: center;">
+					<p>表示できるユーザーはいません</p>
+					<%= image_tag 'follower.svg', :width =>'60%' %>
+				</div>
+			<% else %>
+				<% @users.each do |user| %>
+				<div class="row" style="margin: 15px 0; border-bottom: 1px solid #eee;">
+					<div class="col-xs-2">
+						<table>
+							<tr>
+								<%= link_to(user) do %>
+								<%= attachment_image_tag user, :profile_image, :size =>'70x70', format: 'jpeg''jpg''svg''png', fallback: "avator.svg", class: "img-circle" %>
+								<% end %>
+							</tr>
+						</table>
+					</div>
+					<div class="col-xs-10">
+						<table>
+							<thead>
+								<tr>
+									<th><%= user.username %></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><%= user.introduction %></td>
+									<td><%#= render "user/relationships/follow", user: user %></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+						<table style="margin: 0 auto;">
+							<tr>
+								<th style="padding: 10px;"><%= user.following.count %> Following</th>
+								<th style="padding: 10px;"><%= user.followers.count %> Followers</th>
+							</tr>
+						</table>
+				</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

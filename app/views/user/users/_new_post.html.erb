@@ -1,10 +1,18 @@
-<div class="new-post">
-	<% if @user == current_user %>
-		<%= form_with(model: @post, remote: true, url: posts_path) do |f| %>
-			<%= f.text_area :body, class:"form-control new-post", style:"width: 70%; height:50px;", placeholder:"何を共有したいですか？" %>
-			<!-- 画像投稿機能ができない -->
-			<%#= f.attachment_field :image %>
-			<%= f.submit :投稿する, class:"btn create-post", style:"color: #fff; font-size: 15px;" %>
-		<% end %>
-	<% end %>
-</div>
+<% if @user == current_user %>
+
+	<div class="new-post">
+		<div class="row">
+			<div class="col-xs-10">
+				<%= form_with(model: @post, remote: true, url: posts_path) do |f| %>
+				<%= f.text_area :body, class:"form-control new-post", style:"width: 100%; height:100px;", placeholder:"何を共有したいですか？" %>
+				<!-- 画像投稿機能ができない -->
+				<%#= f.attachment_field :image %>
+			</div>
+			<div class="col-xs-2">
+				<%= f.submit :投稿する, class:"btn create-post", style:"color: #fff; font-size: 15px;" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+<% end %>
