@@ -16,12 +16,12 @@
 	<li>
 		<div class="follow">
 		    <%= link_to following_user_path(user.id) do %>
-	        <h5 style="color: black;">フォロー数：<%= user.following.count %>人</h5>
+	        <h5 style="color: black;"><%= user.following.count %>　Following</h5>
 		    <% end %>
 		</div>
 		<div class="follower">
 		    <%= link_to followers_user_path(user.id) do %>
-	        <h5 style="color: black;">フォロワー数：<%= user.followers.count %>人</h5>
+	        <h5 style="color: black;"><%= user.followers.count %>　Follower</h5>
 		    <% end %>
 		</div>
 
@@ -35,7 +35,11 @@
 
 	<li>
 		<h4>スキルタグ</h4>
-		<p><%#= ここに保有スキルを記載 %></p>
+		<% if @user.skills.count == 0 %>
+			<p>登録しているスキルはありません</p>
+		<% else %>
+			<p><%#= ここに保有スキルを記載 %></p>
+		<% end %>
 	</li>
 
 	<li>
