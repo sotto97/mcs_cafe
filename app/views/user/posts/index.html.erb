@@ -6,9 +6,13 @@
 			<h3 style="text-align: center">タイムライン</h3>
 
 			<!-- ユーザーの投稿一覧 -->
-			<% @posts.each do |post| %>
-				<%= render 'post', post: post %>
-			<% end %>
+			<div id="post">
+				<%= render 'post' %>
+			</div>
+			<!-- もっと見る機能をkaminariで実装 -->
+			<div class="more">
+				<%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more', class:"btn more-action" %>
+			</div>
 		</div>
 
 		<!-- 右側のページのユーザー情報 -->
@@ -18,3 +22,7 @@
 
 	</div>
 </div>
+
+<style>
+
+</style>

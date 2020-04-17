@@ -30,6 +30,22 @@
 	padding-bottom: 20px;
 }
 
+.more .more-action{
+  width: 40%;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 20px auto;
+}
+
 /* post_show */
 
 .user-post a{
