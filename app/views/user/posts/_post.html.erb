@@ -42,7 +42,7 @@
 			</th>
 			<th>
 				<%= link_to post, data: {"turbolinks" => false} do %>
-					コメント数：<%= post.post_comments.count %>
+					<i class="far fa-comment"></i> コメントする
 				<% end %>
 			</th>
 		</tr>
@@ -53,5 +53,9 @@
 <style>
 	.fav th{
 		padding: 0 10px;
+	}
+
+	.user-post td{
+	  white-space: pre-wrap;
 	}
 </style>

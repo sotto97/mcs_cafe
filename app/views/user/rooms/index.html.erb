@@ -1,0 +1,43 @@
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>チャットルーム一覧</h1>
+      <!-- 自分の参加しているユーザーしかみれないようにしたい -->
+      <% @rooms.each do |room| %>
+        <div class="room-all">
+          <%= link_to room_path(room) do %>
+            <p><%= room.name %></p>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= form_with url: rooms_path, method: :post, local: true do |f| %>
+        <%= f.text_field :name, class:"form-control", placeholder:"ルーム名を入力してください" %>
+        <%= f.submit "新しいチャットルームを作成する", class: "btn create-chat", style:"color: #fff;" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .room-all{
+    margin: 20px;
+    display: inline-block;
+  }
+
+  .create-chat{
+    width: 50%;
+    height: 40px;
+    background-size: 200%;
+    display: block;
+    text-align: center;
+    line-height: 200%;
+    border-radius: 10px;
+    margin: 30px auto;
+    outline: none;
+    border: none;
+    background-color: #32be8f;
+    cursor: pointer;
+    text-decoration: none;
+  }
+</style>

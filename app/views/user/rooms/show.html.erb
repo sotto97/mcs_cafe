@@ -1,2 +1,43 @@
-<h1>User::Rooms#show</h1>
-<p>Find me in app/views/user/rooms/show.html.erb</p>
+<div class="container" style="text-align: center;">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<%= link_to "チャットルーム一覧に戻る", rooms_path, class: "btn back-chat", style:"color: #fff;" %>
+			<h1><%= @room.name %></h1>
+			<h4 class="border"><%= "#{current_user&.username}" %></h4>
+
+			<!-- message.user.id = current_user.idの場合はMessageを左に表示させたい -->
+			<div id="messages", data-room_id="<%= @room.id %>">
+				<%= render @messages %>
+			</div>
+			<div class="input">
+				<form>
+					<input class="form-control"　type="text" data-behavior="room_speaker" placeholder="ここにメッセージを入力してください" >
+					<label>Enterでメッセージを	送信</label>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+  .room-all{
+    margin: 20px;
+    display: inline-block;
+  }
+
+  .back-chat{
+    width: 50%;
+    height: 40px;
+    background-size: 200%;
+    display: block;
+    text-align: center;
+    line-height: 200%;
+    border-radius: 10px;
+    margin: 30px auto;
+    outline: none;
+    border: none;
+    background-color: #32be8f;
+    cursor: pointer;
+    text-decoration: none;
+  }
+</style>

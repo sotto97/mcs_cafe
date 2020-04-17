@@ -7,12 +7,15 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :rooms, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :skills, dependent: :destroy
   has_many :notices, dependent: :destroy
   # ユーザーのprofile_imageの実装
   attachment :profile_image, destroy: false
+
+  # チャット機能関連
+  has_many :messages
+  has_many :rooms, through: :entries
 
   # menuのimageの記述
 
@@ -40,7 +43,8 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
-  # user allで一度に表示するuserの数
+
+  # 管理者側のuser allで一度に表示するuserの数
   paginates_per 10
 
 end
