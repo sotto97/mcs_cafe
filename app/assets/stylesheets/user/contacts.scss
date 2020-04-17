@@ -6,6 +6,16 @@
 	padding-top: 30px;
 }
 
+#contact{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
+
 .actions .contact{
   width: 50%;
   height: 40px;
@@ -33,7 +43,7 @@
   margin: 30px auto;
   outline: none;
   border: none;
-  background-color: #00BF3E;
+  background-color: #32be8f;
   cursor: pointer;
   text-decoration: none;
 }
@@ -42,7 +52,6 @@
 	position: relative;
 	height: 550px;
 	width: 100%;
-	background-color: #2E3892;
 }
 
 .thanks .content{
@@ -52,7 +61,6 @@
 	left: 50%;
 	transform : translate(-50%,-50%);
 	text-align: center;
-	color: #fff;
 }
 
 .thanks .back-top{
@@ -66,7 +74,7 @@
   margin: 30px auto;
   outline: none;
   border: none;
-  background-color: #00BF3E;
+  background-color: #32be8f;
   cursor: pointer;
   text-decoration: none;
 }

@@ -1,20 +1,36 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
-			<div class="user-search" style="text-align: center;">
+			<div class="admin-user-search" style="text-align: center;">
 			<h2 class="">ユーザー検索</h2>
 			<!-- usernameでのみ検索可能 -->
-			<%= form_with url: admin_searches_path, method: :get, local: true do |f| %>
-			  <%= f.text_field :username %>
-			  <%= f.submit "検索する" %>
-			<% end %>
+			<ul>
+				<li>
+				<%= form_with url: admin_searches_path, method: :get, local: true do |f| %>
+				  <%= f.text_field :username, class:"form-control", placeholder:"ここにユーザー名を入力" %>
+				</li>
+				<li>
+				  <%= f.submit "検索する", class:"btn admin-search-user", style:"color: #fff; font-size: 15px;" %>
+				<% end %>
+				</li>
+			</ul>
 			</div>
 				<div class="user-all">
 				<h2 style="text-align: center;">ユーザー一覧</h2>
 					<!-- ユーザーの情報 -->
-					<%= render 'admin/users/user_info', user: @user %>
+					<div id="user_info">
+						<%= render 'admin/users/user_info', user: @user %>
+					</div>
+					<!-- もっと見る機能をkaminariで実装 -->
+					<div class="more">
+						<%= link_to_next_page @users, 'もっと見る', remote: true, id: 'view_more', class:"btn more-action", style:"color: #fff;" %>
+					</div>
 
 				</div>
 		</div>
 	</div>
 </div>
+
+<style>
+
+</style>

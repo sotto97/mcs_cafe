@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   def index
-  	@users = User.all
+  	@users = User.order(created_at: :asc).page(params[:page])
   	# @user = User.find(params[:id])
   end
 
