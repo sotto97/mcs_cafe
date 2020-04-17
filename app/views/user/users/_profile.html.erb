@@ -30,12 +30,12 @@
 	</li>
 
 	<li>
-		<h4>自己紹介文</h4>
+		<h4><i class="fas fa-user"></i> 自己紹介文</h4>
 		<p style="text-align: left;"><%= user.introduction %></p>
 	</li>
 
 	<li>
-		<h4>スキルタグ</h4>
+		<h4><i class="fas fa-tags"></i> スキルタグ</h4>
 		<% if @user.skills.count == 0 %>
 			<p>登録しているスキルはありません</p>
 		<% else %>
@@ -45,7 +45,7 @@
 
 	<li>
 		<!-- usernameでのみ検索可能 -->
-		<h4 class="">ユーザー検索</h4>
+		<h4><i class="fas fa-search"></i> ユーザー検索</h4>
 		<%= form_with url: searches_path, method: :get, local: true do |f| %>
 		<%= f.text_field :username, class:"form-control", placeholder:"ユーザー名を入力してください" %>
 		<li>
@@ -55,9 +55,42 @@
 	</li>
 
 	<li>
+		<!-- チャット機能 -->
+		<% if user_signed_in? && @user != current_user %>
+		<h4 class=""><i class="fas fa-comments"></i> チャット</h4>
+	    <%= form_with url: rooms_path, method: :post, local: true do |f| %>
+				<%= hidden_field :user_id, :value=> @user.id %>
+	      <%= f.text_field :name, class:"form-control", placeholder:"ルーム名を入力してください" %>
+	      <%= f.submit "新しいチャットルームを作成する", class: "btn create-chat", style:"color: #fff;" %>
+	    <% end %>
+    <% end %>
+ 	</li>
+
+	<li>
 		<!-- current_userは自分を通報できない -->
 		<% if user_signed_in? && @user != current_user %>
-			<%= link_to "通報する", new_user_notice_path(@user), class:"btn notice-user", style:"color: #fff; font-size: 15px;" %>
+			<%= link_to new_user_notice_path(@user), class:"btn notice-user" do %>
+				<i class="fas fa-exclamation-circle" style="color: #fff; font-size: 15px;"> 通報する</i>
+			<% end %>
 		<% end %>
 	</li>
+
 </ul>
+
+<style>
+  .create-chat{
+    width: auto;
+    height: auto;
+    background-size: 200%;
+    display: block;
+    text-align: center;
+    line-height: 200%;
+    border-radius: 5px;
+    margin: 10px auto;
+    outline: none;
+    border: none;
+    background-color: #32be8f;
+    cursor: pointer;
+    text-decoration: none;
+  }
+</style>

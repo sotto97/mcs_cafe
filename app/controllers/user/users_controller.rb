@@ -6,6 +6,7 @@ class User::UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.all.order(created_at: :desc).page(params[:page])
     # @posts = Post.order(created_at: :desc)
+    #チャット
   end
 
   def edit

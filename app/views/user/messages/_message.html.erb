@@ -1,0 +1,11 @@
+<div class="messages list-group-item">
+  <p><%= "#{message.user.username}: #{message.body}" %></p>
+</div>
+
+<script>
+    if(message.user.id == current_user.id){
+      $('p.' + <%= message.id %>).css('text-align', 'right');
+    }else{
+      $('p.' + <%= message.id %>).css('text-align', 'left');
+    }
+</script>

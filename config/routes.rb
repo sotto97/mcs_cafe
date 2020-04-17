@@ -35,9 +35,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   # チャットルームの実装はテーブルのカラム作成から着手
-  resources :rooms, only: [:show, :create], module: 'user' do
-    resources :messages, only: [:show, :create]
-  end
+  resources :rooms, module: 'user'
+  #   resources :messages, only: [:show, :create]
+  # end
 
   # adminのdeviseのrouting
   devise_for :admins, controllers: {
