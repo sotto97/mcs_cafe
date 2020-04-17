@@ -20,6 +20,16 @@ class User::UsersController < ApplicationController
     end
   end
 
+  def hide
+    @user = User.find(current_user.id)
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    @user.update(is_deleted: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
   def following
       #@userがフォローしているユーザー
       @user  = User.find(params[:id])
@@ -30,9 +40,6 @@ class User::UsersController < ApplicationController
       #@userをフォローしているユーザー
       @user  = User.find(params[:id])
       @users = @user.followers
-  end
-
-  def hide
   end
 
   def notice

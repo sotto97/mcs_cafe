@@ -26,6 +26,7 @@
 		</div>
 
 		<%= render "user/relationships/follow", user: user %>
+
 	</li>
 
 	<li>
@@ -39,6 +40,17 @@
 			<p>登録しているスキルはありません</p>
 		<% else %>
 			<p><%#= ここに保有スキルを記載 %></p>
+		<% end %>
+	</li>
+
+	<li>
+		<!-- usernameでのみ検索可能 -->
+		<h4 class="">ユーザー検索</h4>
+		<%= form_with url: searches_path, method: :get, local: true do |f| %>
+		<%= f.text_field :username, class:"form-control", placeholder:"ユーザー名を入力してください" %>
+		<li>
+			<%= f.submit "検索する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
+		</li>
 		<% end %>
 	</li>
 
