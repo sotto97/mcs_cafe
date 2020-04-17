@@ -66,8 +66,12 @@ gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'refile', require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
+# デバッグ用
 gem 'pry-byebug'
 gem 'cancancan'
 gem 'rubocop', require: false
 gem "font-awesome-rails"
+# root画面のsection毎の表示に使うgem
 gem 'bxslider-rails'
+# paginationするためのgem
+gem 'kaminari'

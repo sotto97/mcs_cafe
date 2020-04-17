@@ -52,7 +52,8 @@
 	        <div class="field">
 	        	<%= link_to "戻る", user_path(current_user.id), class:"btn back-user", style:"color: #fff; font-size: 15px;"  %>
 	        	<%= f.submit "更新する", class:"btn update-user", style:"color: #fff; font-size: 15px;" %>
-	        	<%= f.submit "退会する", class:"btn withdraw-user", style:"color: #fff; font-size: 15px;" %>
+		        <%= link_to "退会", users_hide_path(current_user), method: :put, "data-confirm" => "本当に退会しますか？", class:"btn withdraw-user", style:"color: #fff; font-size: 15px;" %>
+	        	<%#= f.submit "退会する", class:"btn withdraw-user", style:"color: #fff; font-size: 15px;" %>
 	        </div>
 				</div>
 			</div>

@@ -26,8 +26,9 @@ Rails.application.routes.draw do
     end
     resources :notices, only: [:new, :create]
   end
-  resources :relationships, only: [:index, :create, :destroy], module: 'user'
-  put 'users/hide' => 'user/users#hide'
+  # user#showとのpathを変えるための記載
+  put 'users/:id/hide' => 'user/users#hide', as: 'users_hide'
+  resources :relationships, only: [:create, :destroy], module: 'user'
   get 'searches' => 'user/searches#search'
   resources :posts, only: [:index, :show, :create, :destroy], module: 'user' do
     resource :post_comments, only: [:create, :destroy]
@@ -52,7 +53,9 @@ Rails.application.routes.draw do
     resources :news, only: [:index, :create, :destroy]
     get 'news/confirm' => 'news#confirm'
     resources :users, only: [:index, :show, :update] do
-       get 'relationship' => 'users#relationships'
+      member do
+          get :following, :followers
+      end
     end
     get 'searches' => 'searches#search'
     # contactsの返信はcreateで合っているのか？
