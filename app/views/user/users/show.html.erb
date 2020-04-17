@@ -8,10 +8,13 @@
 				<%= render partial: 'new_post', locals: {post: @post} %>
 			</div>
 
-			<!-- ユーザーの投稿一覧 -->
-			<% @posts.each do |post| %>
-				<%= render 'user/posts/post', post: post %>
-			<% end %>
+			<div id="post">
+				<%= render 'user/posts/post' %>
+			</div>
+			<!-- もっと見る機能をkaminariで実装 -->
+			<div class="more">
+				<%= link_to_next_page @posts, 'もっと見る', remote: true, id: 'view_more', class:"btn more-action", style:"color: #fff;" %>
+			</div>
 		</div>
 
 		<!-- 右側のページのユーザー情報 -->
