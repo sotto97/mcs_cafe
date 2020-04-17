@@ -40,4 +40,7 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+  # user allで一度に表示するuserの数
+  paginates_per 10
+
 end

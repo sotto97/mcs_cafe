@@ -8,5 +8,6 @@ class Post < ApplicationRecord
   	favorites.where(user_id: user.id).exists?
   end
 
+  # post allで一度に表示するpostの数
   paginates_per 5
 end
