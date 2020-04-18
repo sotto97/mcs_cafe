@@ -1,23 +1,33 @@
 <div class="container" style="text-align: center;">
 	<div class="row">
 		<div class="col-xs-8 col-xs-offset-2">
-			<%= link_to "チャットルーム一覧に戻る", rooms_path, class: "btn back-chat", style:"color: #fff;" %>
 			<h1><%= @room.name %></h1>
-			<h4 class="border"><%= "#{current_user&.username}" %></h4>
+			<h4 class="border"><%#= "#{current_user&.username}" %></h4>
 
 			<!-- message.user.id = current_user.idの場合はMessageを左に表示させたい -->
-			<div id="messages", data-room_id="<%= @room.id %>">
+			<div id="messages" style="text-align: left;", data-room_id="<%= @room.id %>">
 				<%= render @messages %>
 			</div>
 			<div class="input">
-				<form>
+				<form style="margin: 20px 0;">
+          <label id="target">Enterでメッセージを送信</label>
 					<input class="form-control"　type="text" data-behavior="room_speaker" placeholder="ここにメッセージを入力してください" >
-					<label>Enterでメッセージを	送信</label>
 				</form>
+        <%= link_to "チャットルーム一覧に戻る", rooms_path, class: "btn back-chat", style:"color: #fff;" %>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+  //トークルーム遷移時に入力フォームにスクロールする
+  var element = document.getElementById('target');
+  var rect = element.getBoundingClientRect();
+  var position = rect.top;
+  setTimeout( function() {
+      scrollTo(0, position);}
+      , 1000);
+</script>
 
 <style>
   .room-all{
@@ -33,7 +43,7 @@
     text-align: center;
     line-height: 200%;
     border-radius: 10px;
-    margin: 30px auto;
+    margin: 10px auto;
     outline: none;
     border: none;
     background-color: #32be8f;

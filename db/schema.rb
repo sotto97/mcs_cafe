@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_17_064457) do
+ActiveRecord::Schema.define(version: 2020_04_18_113814) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 2020_04_17_064457) do
     t.string "title"
     t.text "body"
     t.boolean "is_deleted", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "entries", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -109,6 +102,8 @@ ActiveRecord::Schema.define(version: 2020_04_17_064457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "guest_user_id"
+    t.integer "host_user_id"
   end
 
   create_table "skills", force: :cascade do |t|
