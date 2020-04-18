@@ -12,7 +12,7 @@ class RoomChannel < ApplicationCable::Channel
     message = Message.create!(body: data['message'],
                               user_id: current_user.id,
                               room_id: params['room_id'])
-    render_message = ApplicationController.renderer.render(partial: 'user/messages/message',
+    render_message = ApplicationController.render_with_signed_in_user(current_user,partial: 'user/messages/message',
                                                             locals: {message: message})
     ActionCable.server.broadcast 'room_channel',
                                   message: render_message,

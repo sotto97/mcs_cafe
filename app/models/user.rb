@@ -15,7 +15,10 @@ class User < ApplicationRecord
 
   # チャット機能関連
   has_many :messages
-  has_many :rooms, through: :entries
+  has_many :host_user_rooms, foreign_key: "guest_user_id", class_name: "Room",  dependent: :destroy
+  has_many :host_users, through: :host_user_rooms
+  has_many :guest_user_rooms, foreign_key: "host_user_id", class_name: "Room", dependent: :destroy
+  has_many :guest_users, through: :guest_user_rooms
 
   # menuのimageの記述
 
