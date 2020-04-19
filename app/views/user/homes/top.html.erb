@@ -7,7 +7,7 @@
 	</div>
 </section>
 
-<section class="content news element js-animation" id="news">
+<section class="content news element js-animation" id="news" style="width: 100%;">
 	<div class="container">
 		<div class="row">
 			<!-- 左のnewsの画像入れる予定 -->
@@ -19,9 +19,11 @@
 				<!-- adminで登録した記事を見る機能 -->
 				<% @newses.each do |news| %>
 					<h5><strong><%= news.title %></strong></h5>
-					<p><%= news.body %></p>
+					<p style="color: #808080;">（<%= news.updated_at.strftime("%Y/%m/%d") %>）</p>
+					<p><%= news.body.truncate(35) %><%= link_to " more", news_path %></p>
 				<!-- 後にgem "kaminari" をいれてpaginationするか もっと見るボタンを作る -->
 				<% end %>
+				<p style="text-align: center;"><%= link_to "全てのNewsを見る＞＞", news_path %></p>
 			</div>
 		</div>
 	</div>
@@ -50,7 +52,7 @@
 <section class="content place element js-animation">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-6" style="text-align: center;">
+			<div class="col-xs-6" style="text-align: center; padding: 30px;">
 				<h2>MCS Cafe</h2>
 				<h4>-営業時間-</h4>
 				<p>朝5時〜昼2時</p>
@@ -86,6 +88,10 @@
 		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop2.jpg') %>");
 		background-size: cover;
 		background-position: bottom;
+	}
+
+	#news{
+		height: 540px;
 	}
 
 	.news .box{
