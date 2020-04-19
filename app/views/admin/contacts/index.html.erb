@@ -14,16 +14,16 @@
 					<tbody>
 						<% @contacts.each do |contact| %>
 							<tr>
-								<tr>
-									<td><%= link_to contact.title, admin_contact_path(contact.id) %></td>
-									<td><%= contact.body %></td>
-								</tr>
-								<!-- 返信ステータスのデフォルトはfalse(未返信) -->
-								<% if contact.is_deleted == false %>
-									<td>未返信</td>
-								<% else %>
-									<td>返信済</td>
-								<% end %>
+								<td>
+									<%= link_to contact.title, admin_contact_path(contact.id), data: {"turbolinks" => false} %><br>
+									<!-- 返信ステータスのデフォルトはfalse(未返信) -->
+									<% if contact.is_deleted == false %>
+										<p class="btn no-reply">未返信</p>
+									<% else %>
+										<p class="btn reply">返信済</p>
+									<% end %>
+								</td>
+								<td><%= contact.body %></td>
 							</tr>
 						<% end %>
 					</tbody>
@@ -35,5 +35,27 @@
 </div>
 
 <style>
+	.no-reply{
+		width: auto;
+		height: auto;
+		background-color: #808080;
+		color: #fff;
+	}
 
+	.no-reply:hover{
+		color: #fff;
+		cursor: default;
+	}
+
+	.reply{
+		width: auto;
+		height: auto;
+		background-color: #2E3892;
+		color: #fff;
+	}
+
+	.reply:hover{
+		color: #fff;
+		cursor: default;
+	}
 </style>

@@ -12,14 +12,40 @@
 		<tr>
 			<td><%= link_to user.id, admin_user_path(user) %></td>
 			<td><%= user.username %></td>
-			<td><%= user.following.count %>:following<br><%= user.followers.count %>follower</td>
+			<td><%= user.following.count %> Following<br><%= user.followers.count %> Follower</td>
 			<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->
 			<% if user.is_deleted == false %>
-			<td>有効</td>
+				<td><p class="btn user-active">有効</p></td>
 			<% else %>
-			<td>退会</td>
+				<td><p class="btn user-inactive">退会</p></td>
 			<% end %>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+
+<style>
+	.user-active{
+		width: auto;
+		height: auto;
+		background-color: #2E3892;
+		color: #fff;
+	}
+
+	.user-active:hover{
+		color: #fff;
+		cursor: default;
+	}
+
+	.user-inactive{
+		width: auto;
+		height: auto;
+		background-color: #808080;
+		color: #fff;
+	}
+
+	.user-inactive:hover{
+		color: #fff;
+		cursor: default;
+	}
+</style>

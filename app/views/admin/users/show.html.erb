@@ -9,7 +9,7 @@
 								<th width="20%">ユーザーID</th>
 								<th width="30%">ユーザー名</th>
 								<th width="30%">ユーザーステータス</th>
-								<th width="15%"></th>
+								<th width="20%"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -21,11 +21,8 @@
 								<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->
 								<td><%= f.radio_button :is_deleted, false %> 有効　<%= f.radio_button :is_deleted, true %> 退会</td>
 							</tr>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td><%= f.submit "変更する", class:"btn" %></td>
+							<tr style="width: 100%; text-align: center;">
+								<td colspan="4"><%= f.submit "変更する", class:"btn update-status" %></td>
 							</tr>
 						<% end %>
 						</tbody>
@@ -34,3 +31,12 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.update-status{
+		width: auto;
+		height: auto;
+		background-color: #2E3892;
+		color: #fff;
+	}
+</style>

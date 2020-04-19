@@ -45,7 +45,7 @@
                     <p style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
                   </td>
                   <td><!-- チャットルーム名 -->
-                    <%= link_to room_path(room), method: :delete do %>
+                    <%= link_to room_path(room), method: :delete, data: {confirm: "投稿を削除しますか？"} do %>
                       <p><i class="fas fa-trash-alt"></i></p>
                     <% end %>
                   </td>

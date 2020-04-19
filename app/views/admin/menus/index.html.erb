@@ -3,8 +3,8 @@
 		<div class="col-xs-10 col-xs-offset-1">
 			<h2>メニュー作成</h2>
 		  <%= form_for(@menu, url: admin_menus_path, method: :post) do |f| %>
-				<%= f.attachment_field :menu_image %>
-				<%= f.submit "追加" %>
+				<%= f.attachment_field :menu_image, style:"margin: 20px auto;" %>
+				<%= f.submit "追加", class: "btn add-menu" %>
 			<% end %>
 
 				<h2>メニュー一覧</h2>
@@ -15,12 +15,12 @@
 							<%= attachment_image_tag menu, :menu_image, size: "400x225" %>
 
 						  <%= form_for(menu, url: admin_menu_path(menu.id), method: :put) do |f| %>
-								<%= f.attachment_field :menu_image, class: "menu_image" %>
-								<%= f.submit "メニューを変更する" %>
+								<%= f.attachment_field :menu_image, style:"margin: 20px auto;" %>
+								<%= f.submit "メニューを変更する", class: "btn change_menu_image" %>
 							<% end %>
 
 						  <%= form_for(menu, url: admin_menu_path(menu.id), method: :delete) do |f| %>
-								<%= f.submit "メニューを削除する" %>
+								<%= f.submit "メニューを削除する", class: "btn delete_menu_image" %>
 							<% end %>
 						</div>
 					<% end %>
@@ -31,13 +31,40 @@
 </div>
 
 <style>
+	.add-menu{
+		width: auto;
+		height: auto;
+		background-color: #333;
+		color: #fff;
+	}
+
+	.add-menu:hover{
+		color: #fff;
+	}
+
 	.menu-image{
 		border: 1px solid black;
 		float: left;
+		margin: 0 20px;
 	}
 
 	.menu-image-all{
 		display: inline-block;
 		margin: 20px 0;
+	}
+
+	.change_menu_image{
+		width: 40%;
+		height: auto;
+		background-color: #2E3892;
+		color: #fff;
+	}
+
+	.delete_menu_image{
+		width: 40%;
+		height: auto;
+		background-color: #333;
+		color: #fff;
+		margin: 10px 0;
 	}
 </style>
