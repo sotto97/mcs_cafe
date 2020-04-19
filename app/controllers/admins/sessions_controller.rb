@@ -28,11 +28,11 @@ class Admins::SessionsController < Devise::SessionsController
   # admin側のログイン後のpath指定
   def after_sign_in_path_for(resource)
     flash[:notice] = "ログインしました。"
-    admin_home_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+    admin_notices_path #後にadminのtopの画面にpathするように変更
   end
 
   def after_sign_up_path_for(resource)
-    admin_home_path #後にadminのtopの画面にpathするように変更。（to 仲井）
+    admin_notices_path #後にadminのtopの画面にpathするように変更
   end
 
   def after_sign_out_path_for(resource)
