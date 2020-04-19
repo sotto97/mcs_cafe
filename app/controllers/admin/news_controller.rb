@@ -1,4 +1,5 @@
 class Admin::NewsController < ApplicationController
+  before_action :authenticate_admin!
   def index
   	@newses = News.all
    	@news_new = News.new

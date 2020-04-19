@@ -18,11 +18,6 @@ class User::ContactsController < ApplicationController
     render :new
   end
 
-  # newとconfirmだけで回したのでeditは必要なし
-  # def edit
-  # 	@contact = Contact.new
-  # end
-
 	def create
   	@contact = Contact.new(contact_params)
     if params[:back]

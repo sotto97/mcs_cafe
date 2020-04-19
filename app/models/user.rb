@@ -48,6 +48,5 @@ class User < ApplicationRecord
   end
 
   # 管理者側のuser allで一度に表示するuserの数
-  paginates_per 10
-
+  # paginates_per 10
 end

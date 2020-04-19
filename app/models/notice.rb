@@ -3,4 +3,6 @@ class Notice < ApplicationRecord
 
 	validates :user_id, presence: true
 	validates :body, presence: true
+
+  paginates_per 10
 end
