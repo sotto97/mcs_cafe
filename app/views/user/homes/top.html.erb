@@ -21,9 +21,8 @@
 					<h5><strong><%= news.title %></strong></h5>
 					<p style="color: #808080;">（<%= news.updated_at.strftime("%Y/%m/%d") %>）</p>
 					<p><%= news.body.truncate(35) %><%= link_to " more", news_path %></p>
-				<!-- 後にgem "kaminari" をいれてpaginationするか もっと見るボタンを作る -->
 				<% end %>
-				<p style="text-align: center;"><%= link_to "全てのNewsを見る＞＞", news_path %></p>
+				<p style="text-align: center;"><%= link_to "全てのNewsを見る＞＞", news_path, class: "more-news" %></p>
 			</div>
 		</div>
 	</div>
@@ -99,6 +98,10 @@
 		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('morning2.jpg') %>");
 		background-size: cover;
 		background-position: bottom;
+	}
+
+	.news .more-news{
+		text-decoration: none;
 	}
 
 	.menu{

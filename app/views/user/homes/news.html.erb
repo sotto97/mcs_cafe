@@ -1,18 +1,36 @@
-<div class="container">
+<div class="container news-body">
 	<div class="row">
 		<!-- 左のnewsの画像入れる予定 -->
-		<div class="col-xs-8 col-xs-offset-2">
-			<h2>NEWS</h2>
+		<div class="col-xs-10 col-xs-offset-1">
+			<h2 style="color: #fff;">MCS Cafe NEWS</h2>
 			<!-- adminで登録した記事を見る機能 -->
 			<% @newses.each do |news| %>
-				<h5><strong><%= news.title %></strong></h5>
+			<div class="news-detail">
+
+				<h5 style="border-bottom: 1px solid #808080"><strong><%= news.title %></strong></h5>
 				<p><%= news.body %></p>
-			<!-- 後にgem "kaminari" をいれてpaginationするか もっと見るボタンを作る -->
+				<p style="color: #808080;">（<%= news.updated_at.strftime("%Y/%m/%d") %>）</p>
+
+			</div>
 			<% end %>
 		</div>
 	</div>
 </div>
 
 <style>
-	
+	body{
+	position: relative;
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('cafe_latte.jpg') %>");
+	background-size: cover;
+	background-position: center;
+	}
+
+	.news-detail{
+		margin: 20px 0;
+		background-color: #eee;
+		padding: 20px;
+	}
+	.news-detail p{
+	  white-space: pre-wrap;
+	}
 </style>
