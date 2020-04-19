@@ -1,12 +1,11 @@
 class User::UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc).page(params[:page])
-    # @posts = Post.order(created_at: :desc)
-    #チャット
   end
 
   def edit
@@ -28,28 +27,25 @@ class User::UsersController < ApplicationController
     @user.update(is_deleted: true)
     #ログアウトさせる
     reset_session
-    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
     redirect_to root_path
   end
 
   def following
-      #@userがフォローしているユーザー
-      @user  = User.find(params[:id])
-      @users = @user.following
+    #@userがフォローしているユーザー
+    @user  = User.find(params[:id])
+    @users = @user.following
   end
 
   def followers
-      #@userをフォローしているユーザー
-      @user  = User.find(params[:id])
-      @users = @user.followers
+    #@userをフォローしているユーザー
+    @user  = User.find(params[:id])
+    @users = @user.followers
   end
 
   def notice
-
   end
 
   def create
-
   end
 
   private

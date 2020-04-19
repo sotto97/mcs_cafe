@@ -10,7 +10,7 @@
 	<tbody>
 		<% @users.each do |user| %>
 		<tr>
-			<td><%= link_to user.id, admin_user_path(user) %></td>
+			<td><%= link_to user.id, admin_user_path(user), data: {"turbolinks" => false} %></td>
 			<td><%= user.username %></td>
 			<td><%= user.following.count %> Following<br><%= user.followers.count %> Follower</td>
 			<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->

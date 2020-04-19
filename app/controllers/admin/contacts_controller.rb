@@ -1,4 +1,6 @@
 class Admin::ContactsController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
   	@contacts = Contact.all.order(created_at: :desc)
   end
@@ -17,11 +19,10 @@ class Admin::ContactsController < ApplicationController
   		redirect_to admin_contacts_path
   	end
   end
+
   private
+
   def contact_params
     params.permit(:is_deleted)
   end
-  # def reply_params
-  #   params.require(:contact).permit(:body)
-  # end
 end

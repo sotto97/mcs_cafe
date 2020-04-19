@@ -1,4 +1,5 @@
 class Admin::MenusController < ApplicationController
+  before_action :authenticate_admin!
   def index
   	@menus = Menu.all
   	@menu = Menu.new
@@ -19,7 +20,6 @@ class Admin::MenusController < ApplicationController
   	end
   end
 
-  # destroyはactionのみ
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy

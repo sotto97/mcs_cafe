@@ -1,7 +1,8 @@
 class User::SearchesController < ApplicationController
+  before_action :authenticate_user!
   def search
   	@user = current_user
-  	# usernameで検索可能
+  	# usernameでのみ検索可能
     if params[:username].present?
       @users = User.where('username LIKE ?', "%#{params[:username]}%")
     else
