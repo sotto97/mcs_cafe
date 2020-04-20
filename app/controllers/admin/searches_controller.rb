@@ -1,9 +1,9 @@
 class Admin::SearchesController < ApplicationController
   before_action :authenticate_admin!
   def search
-  	# usernameで検索可能
-    if params[:username].present?
-      @users = User.where('username LIKE ?', "%#{params[:username]}%")
+  	# user.idで検索可能
+    if params[:id].present?
+      @users = User.where('id LIKE ?', "%#{params[:id]}%")
     else
       @users = User.none
     end
