@@ -37,11 +37,11 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_out_path_for(resource)
     flash[:notice] = "ログアウトしました。"
-    root_path
+    user_session_path
   end
 
   protected
-
+  # 退会済 or ユーザーステータスがtrueのユーザーに表示させるメッセージ
   def reject_user
     @user = User.find_by(email: params[:user][:email].downcase)
     if @user

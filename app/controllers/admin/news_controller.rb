@@ -24,6 +24,7 @@ class Admin::NewsController < ApplicationController
   end
 
   def create
+    @newses = News.all
   	@news_new = News.new(news_params)
     if params[:back]
       render :index

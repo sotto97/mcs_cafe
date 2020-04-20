@@ -6,8 +6,9 @@
 				<!-- usernameでのみ検索可能 -->
 				<ul style="margin-top: 20px;">
 					<li>
+					<!-- user.idで検索可能 -->
 					<%= form_with url: admin_searches_path, method: :get, local: true do |f| %>
-					  <%= f.text_field :username, class:"form-control", placeholder:"ここにユーザー名を入力" %>
+					  <%= f.text_field :id, class:"form-control", placeholder:"ここにユーザーIDを入力" %>
 					</li>
 					<li>
 					  <%= f.submit "検索する", class:"btn admin-search-user", style:"color: #fff; font-size: 15px;" %>
