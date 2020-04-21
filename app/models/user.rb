@@ -13,6 +13,14 @@ class User < ApplicationRecord
   # ユーザーのprofile_imageの実装
   attachment :profile_image, destroy: false
 
+  # バリデーションの設定
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :first_name_kana, presence: true
+  validates :last_name_kana, presence: true
+  validates :username, presence: true
+  validates :introduction, length: {maximum: 50}
+
   # チャット機能関連
   has_many :messages
   has_many :host_user_rooms, foreign_key: "guest_user_id", class_name: "Room",  dependent: :destroy
@@ -47,6 +55,4 @@ class User < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
-  # 管理者側のuser allで一度に表示するuserの数
-  # paginates_per 10
 end
