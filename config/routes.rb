@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :user do
-    get 'notices/new'
-    get 'notices/create'
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'user/homes#top'
 
@@ -27,6 +23,7 @@ Rails.application.routes.draw do
     end
     resources :notices, only: [:new, :create]
   end
+
   # user#showとのpathを変えるための記載
   put 'users/:id/hide' => 'user/users#hide', as: 'users_hide'
   resources :relationships, only: [:create, :destroy], module: 'user'
@@ -35,10 +32,7 @@ Rails.application.routes.draw do
     resource :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  # チャットルームの実装はテーブルのカラム作成から着手
   resources :rooms, module: 'user'
-  #   resources :messages, only: [:show, :create]
-  # end
 
   # adminのdeviseのrouting
   devise_for :admins, controllers: {
@@ -59,7 +53,6 @@ Rails.application.routes.draw do
       end
     end
     get 'searches' => 'searches#search'
-    # contactsの返信はcreateで合っているのか？
     resources :contacts, only: [:index, :show, :create, :update]
     resources :menus, only: [:index, :create, :update, :destroy]
   end
