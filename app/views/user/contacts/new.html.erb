@@ -11,6 +11,11 @@
 				</div>
 
 				<div class="product-form">
+					<%= f.label :メールアドレス %>
+					<%= f.email_field :email, class:"form-control" %>
+				</div>
+
+				<div class="product-form">
 					<%= f.label :お問い合わせ内容 %>
 					<%= f.text_area :body, class:"form-control", style:"height: 100px;" %>
 				</div>

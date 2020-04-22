@@ -1,5 +1,7 @@
 class User::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :baria_user, only: [:edit, :update, :hide]
+
   def index
   end
 
@@ -52,5 +54,12 @@ class User::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:email ,:first_name, :last_name, :first_name_kana, :last_name_kana, :username, :profile_image, :address, :introduction, :age, :job)
+  end
+
+  #url直接防止　メソッドを自己定義してbefore_actionで発動。
+  def baria_user
+    unless params[:id].to_i == current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 end
