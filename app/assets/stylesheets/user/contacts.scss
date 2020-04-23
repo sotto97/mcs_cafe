@@ -78,3 +78,35 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+/* view_port */
+@media screen and (max-width:425px) {
+  .social i {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  #contact{
+    width: 350px;
+  }
+
+  #contact h2{
+    font-size: 25px;
+  }
+
+  .actions .contact{
+    width: 60%;
+  }
+
+  .actions .send-contact{
+    width: 60%;
+  }
+
+  .thanks .content{
+    width: 100%;
+  }
+
+  #contact .thanks h2{
+    font-size: 20px;
+  }
+}
