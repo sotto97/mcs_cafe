@@ -1,3 +1,71 @@
 // Place all the styles related to the admin::contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* admin contact_index */
+
+.no-reply{
+	width: auto;
+	height: auto;
+	background-color: #808080;
+	color: #fff;
+}
+
+.no-reply:hover{
+	color: #fff;
+	cursor: default;
+}
+
+.reply{
+	width: auto;
+	height: auto;
+	background-color: #2E3892;
+	color: #fff;
+}
+
+.reply:hover{
+	color: #fff;
+	cursor: default;
+}
+
+/* admin contact_show */
+
+.contact-detail{
+	position: relative;
+	height: auto;
+}
+
+.contact-detail tr th{
+	text-align: center;
+}
+
+.no-reply{
+	width: auto;
+	height: auto;
+	background-color: #808080;
+	color: #fff;
+	margin: 10px 0;
+}
+
+.no-reply:hover{
+	color: #fff;
+	cursor: default;
+}
+
+.reply-status .btn{
+	text-align: center;
+	border-radius: 10px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	background-color: #333;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	margin: 0 20px;
+}
+
+.reply-status select{
+	width: 30%;
+	height: 30px;
+}

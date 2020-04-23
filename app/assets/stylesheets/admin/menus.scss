@@ -1,3 +1,50 @@
 // Place all the styles related to the admin::menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* admin menu_index */
+
+.add-menu{
+	width: auto;
+	height: auto;
+	background-color: #333;
+	color: #fff;
+}
+
+.add-menu:hover{
+	color: #fff;
+}
+
+.menu-image{
+	border: 1px solid black;
+	float: left;
+	margin: 0 20px;
+}
+
+.menu-image-all{
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.menu-image .change_menu_image{
+	width: 40%;
+	height: auto;
+	background-color: #2E3892;
+	color: #fff;
+}
+
+.menu-image .change_menu_image:hover{
+	color: #fff;
+}
+
+.menu-image .delete_menu_image{
+	width: 40%;
+	height: auto;
+	background-color: #333;
+	color: #fff;
+	margin: 10px 0;
+}
+
+.menu-image .delete_menu_image:hover{
+	color: #fff;
+}
