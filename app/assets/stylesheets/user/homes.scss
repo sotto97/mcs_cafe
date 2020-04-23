@@ -151,3 +151,82 @@ section{
 .news-detail p{
   white-space: pre-wrap;
 }
+
+/* view_port */
+@media screen and (max-width:425px) {
+  .social i {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  .about{
+		position: relative;
+		height: 300px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	.about .explain{
+    width: 325px;
+	}
+
+	.news .box{
+		display: none;
+	}
+
+	.news .top-news{
+    text-align: center;
+		width: 90%;
+    margin: 0 5%;
+    height: 600px;
+	}
+
+	.menu{
+		background-size: 100% 200px;
+		background-position: center;
+	}
+
+	.place .col-xs-6{
+		width: 80%;
+		height: auto;
+		margin: 0 10%;
+	}
+
+	.place .box{
+		display: none;
+	}
+
+	.contact .content{
+    width: 90%;
+	}
+
+	/* ここからAbout */
+	.caption{
+		width: 100%;
+		height: auto;
+		margin: 0 5%;
+		display: block;
+		float: none;
+	}
+
+	.caption .box{
+    width: 90%;
+    padding: 0;
+    margin: 0 5%;
+	}
+
+	.caption .box h1{
+		font-size: 25px;
+	}
+
+	.caption .box-image:nth-child(2){
+		display: none;
+	}
+
+	.caption-footer h1{
+		font-size: 25px;
+	}
+
+}
