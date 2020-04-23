@@ -140,3 +140,14 @@ section{
   visibility: visible;
   transform: translateY(0px);
 }
+
+/* newsのページ */
+
+.news-detail{
+	margin: 20px 0;
+	background-color: #eee;
+	padding: 20px;
+}
+.news-detail p{
+  white-space: pre-wrap;
+}

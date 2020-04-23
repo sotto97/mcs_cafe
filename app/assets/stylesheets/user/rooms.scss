@@ -1,3 +1,50 @@
 // Place all the styles related to the user::rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.room-all{
+  margin: 20px;
+  display: inline-block;
+}
+
+.input .back-chat{
+  width: 50%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 10px auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.room-all tr td{
+  width: 20%;
+  text-align: center;
+}
+
+.room-all th{
+  width: 25%;
+  text-align: center;
+}
+
+.create-chat{
+  width: 50%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 30px auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
