@@ -29,8 +29,8 @@ RSpec.describe 'Admins', type: :system do
   describe '管理者ユーザーのテスト' do
     let(:admin) { create(:admin) }
     let(:user) { create(:user) }
-    let(:notice) { create(:notice, user: user) }
-    let(:news) { create(:news, admin: admin) }
+    let!(:notice) { create(:notice, user: user) }
+    let!(:news) { create(:news, admin: admin) }
     before do
       visit new_admin_session_path
       fill_in 'admin[email]', with: admin.email
@@ -47,15 +47,14 @@ RSpec.describe 'Admins', type: :system do
           expect(page).to have_content('通報通達一覧')
         end
         it '通報IDが表示される' do
-          # binding.pry
-          expect(page).to have_content notice.id
-          expect(page).to have_link '', href: admin_notice_path(notice)
+          expect(page).to have_content(notice.id)
+          expect(page).to have_link notice.id.to_s, href: admin_notice_path(notice)
         end
         it '通報されたユーザーIDが表示される' do
           expect(page).to have_content(notice.user_id)
         end
         it '通報されたユーザー名が表示される' do
-          expect(page).to have_content notice.username
+          expect(page).to have_content(notice.username)
         end
         it '通報内容が表示される' do
           expect(page).to have_content(notice.body)
@@ -109,12 +108,11 @@ RSpec.describe 'Admins', type: :system do
           expect(page).to have_content('ニュース一覧')
         end
         it 'ニュースタイトルが表示される' do
-          # binding.pry
-          expect(page).to have_content news.title
+          expect(page).to have_content(news.title)
         end
         it 'ニュース内容が表示される' do
           visit admin_news_index_path
-          expect(page).to have_content news.body
+          expect(page).to have_content (news.body)
         end
         it '投稿確認画面に遷移する' do
           fill_in 'news[title]', with: news.title
@@ -124,22 +122,5 @@ RSpec.describe 'Admins', type: :system do
         end
       end
     end
-
-    # describe '詳細画面のテスト' do
-    #   before do
-    #     visit admin_path(admin)
-    #   end
-    #   context '表示の確認' do
-    #     it '投稿一覧のユーザーの画像のリンク先が正しい' do
-    #       expect(page).to have_link '', href: admin_path(admin)
-    #     end
-    #     it '投稿一覧のbodyのリンク先が正しい' do
-    #       expect(page).to have_link post.body, href: post_path(post)
-    #     end
-    #     it '投稿一覧にopinionが表示される' do
-    #       expect(page).to have_content(post.body)
-    #     end
-    #   end
-    # end
   end
 end
