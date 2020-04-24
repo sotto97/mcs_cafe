@@ -15,11 +15,13 @@
 	<% end %>
 <% end %>
 
-<%= form_with url: skills_path, method: :post, local: true do |f| %>
-	<%= f.text_field :skill_name, class:"form-control", placeholder:"スキル名を入力" %>
-	<li>
-		<%= f.submit "追加する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
-	</li>
+<% if @user == current_user %>
+	<%= form_with url: skills_path, method: :post, local: true do |f| %>
+		<%= f.text_field :skill_name, class:"form-control", placeholder:"スキル名を入力" %>
+		<li>
+			<%= f.submit "追加する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
+		</li>
+	<% end %>
 <% end %>
 
 
