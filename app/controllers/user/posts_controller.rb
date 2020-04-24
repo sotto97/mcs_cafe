@@ -3,6 +3,7 @@ class User::PostsController < ApplicationController
   def index
   	@user = User.find(current_user.id)
     @posts = Post.order(created_at: :desc).page(params[:page])
+    @skills = Skill.all
   end
 
   def show
@@ -10,6 +11,7 @@ class User::PostsController < ApplicationController
   	@post = Post.find(params[:id])
     @post_comments = @post.post_comments
     @post_comment = PostComment.new
+    @skills = Skill.all
   end
 
   def create

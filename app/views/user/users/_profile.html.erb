@@ -35,12 +35,7 @@
 	</li>
 
 	<li>
-		<h4><i class="fas fa-tags"></i> スキルタグ</h4>
-		<% if @user.skills.count == 0 %>
-			<p>登録しているスキルはありません</p>
-		<% else %>
-			<p><%#= ここに保有スキルを記載 %></p>
-		<% end %>
+			<%= render "user/skills/skill", skill: @skill %>
 	</li>
 
 	<li>
