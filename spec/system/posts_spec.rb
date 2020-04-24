@@ -18,13 +18,15 @@ RSpec.describe 'Posts', type: :system do
         end
       end
       context "投稿機能の確認" do
+        before do
+          visit user_path(user)
+        end
         it '投稿に成功する' do
-          fill_in 'post[body]', with: Faker::Lorem.characters(number:20)
+          fill_in 'body', with: Faker::Lorem.characters(number:20)
           click_button '投稿する'
           expect(current_path).to eq '/users/' + user.id.to_s
         end
         it '投稿に失敗する' do
-          fill_in 'post[body]', with: ''
           click_button '投稿する'
           expect(current_path).to eq '/users/' + user.id.to_s
         end
