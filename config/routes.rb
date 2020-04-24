@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
     resources :notices, only: [:new, :create]
   end
-
+  resources :skills, only: [:create, :destroy], module: 'user'
   # user#showとのpathを変えるための記載
   put 'users/:id/hide' => 'user/users#hide', as: 'users_hide'
   resources :relationships, only: [:create, :destroy], module: 'user'

@@ -1,0 +1,30 @@
+<h4><i class="fas fa-tags"></i> スキルタグ</h4>
+
+<% if @user.skills.count == 0 %>
+	<p>登録しているスキルはありません</p>
+<% else %>
+	<% @skills.each do |skill| %>
+		<!-- 非同期通信 -->
+		<!-- <div class="skill_form_<%#= @skill %>"> -->
+			<%#= render partial: 'user/skills/skill_form', locals: {skill: skill}  %>
+		<!-- </div> -->
+		<p class="skills-all" style="display: inline-block; border-radius: 5px; background-color: #32be8f; color: #fff; padding: 2px 5px; margin: 5px 0;">
+			<%= skill.skill_name %>
+			<%= link_to "", skill_path(skill), method: :delete, class:"fas fa-backspace", style:"color: #fff; font-size: 15px; padding: 5px;" %>
+		</p>
+	<% end %>
+<% end %>
+
+<%= form_with url: skills_path, method: :post, local: true do |f| %>
+	<%= f.text_field :skill_name, class:"form-control", placeholder:"スキル名を入力" %>
+	<li>
+		<%= f.submit "追加する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
+	</li>
+<% end %>
+
+
+<style>
+	.fas:hover{
+		text-decoration: none;
+	}
+</style>
