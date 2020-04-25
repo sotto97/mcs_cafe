@@ -4,12 +4,13 @@
 		<!-- 左側のページ -->
 		<div class="col-xs-7 col-xs-offset-1" style="padding-bottom: 30px;">
 			<!-- 新規投稿フォーム 非同期通信済 -->
-			<div class="post-form_<%= @post %>">
-				<%= render partial: 'new_post', locals: {post: @post} %>
+			<div class="">
+				<!-- <%#= render partial: 'new_post', locals: {post: @post} %> -->
+				<%= render 'new_post', post: @post %>
 			</div>
 
-			<div id="post">
-				<%= render 'user/posts/post' %>
+			<div class="post">
+				<%= render 'user/posts/post', post: @post %>
 			</div>
 			<!-- もっと見る機能をkaminariで実装 -->
 			<div class="more">

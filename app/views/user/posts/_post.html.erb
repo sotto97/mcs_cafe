@@ -1,6 +1,8 @@
-<% @posts.each do |post| %>
-	<%= render 'user/posts/post_detail', post: post %>
-<% end %>
+<div class="post_all">
+	<% @posts.each do |post| %>
+			<%= render partial: 'user/posts/post_detail', locals: {post: post} %>
+	<% end %>
+</div>
 
 <style>
 	.fav th{
