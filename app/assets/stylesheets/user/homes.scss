@@ -1,3 +1,232 @@
 // Place all the styles related to the user::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* root画面のscss */
+/* background-imageは.htmlに記載 */
+
+section{
+	padding-top: 30px;
+}
+
+.about .explain{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 25px;
+}
+
+.about .explain:hover{
+	text-decoration: none;
+	background-color: rgba(46,56,146,0.5);
+	transition: 0.5s ease;
+	color: #fff;
+	opacity: 1;
+}
+
+.place h4{
+	padding-top: 15px;
+}
+
+.contact .content{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+	border: 1px solid #fff;
+	padding: 25px;
+}
+
+.contact .content:hover{
+	text-decoration: none;
+	background-color: rgba(46,56,146,0.5);
+	transition: 0.5s ease;
+	color: #fff;
+	opacity: 1;
+}
+
+.contact .content{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	color: #fff;
+}
+
+/* aboutのページ */
+
+.caption{
+	width: 100%;
+	height: 70vh;
+	align-items: center;
+	justify-content: center;
+	text-align: left;
+	display: flex;
+}
+
+.caption .box{
+	width: 50%;
+	padding: 70px;
+}
+
+.caption .box-image{
+	padding: 40px;
+	margin: 0 auto;
+}
+
+.caption .box-image img{
+}
+
+.caption-footer .btn{
+	background-color: #32be8f;
+}
+
+.caption-footer{
+	position: relative;
+	padding-top: 50px;
+	height: 500px;
+	width: 100%;
+	text-align: center;
+}
+
+.caption-footer .btn{
+	width: 200px;
+	height: 80px;
+  background-color: #32be8f;
+	padding-top: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin: 10px 0 0 0;
+}
+.caption-footer .btn:hover{
+	box-shadow: 0 15px 30px -10px rgba(0,0,0,.50), 0 0 5px rgba(0,0,0,.1);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+.caption-footer .signin{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+}
+
+/* js 対応の記載 */
+
+.js-animation {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(40px);
+  transition: all 1s;
+}
+.js-animation.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+/* newsのページ */
+
+.news-detail{
+	margin: 20px 0;
+	background-color: #eee;
+	padding: 20px;
+}
+.news-detail p{
+  white-space: pre-wrap;
+}
+
+/* view_port */
+@media screen and (max-width:425px) {
+  .social i {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  .about{
+		position: relative;
+		height: 300px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	.about .explain{
+    width: 325px;
+	}
+
+	.news .box{
+		display: none;
+	}
+
+	.news .top-news{
+    text-align: center;
+		width: 90%;
+    margin: 0 5%;
+    height: 600px;
+	}
+
+	.menu{
+		background-size: 100% 200px;
+		background-position: center;
+	}
+
+	.place .col-xs-6{
+		width: 80%;
+		height: auto;
+		margin: 0 10%;
+	}
+
+	.place .box{
+		display: none;
+	}
+
+	.contact .content{
+    width: 90%;
+	}
+
+	/* ここからAbout */
+	.caption{
+		width: 100%;
+		height: auto;
+		margin: 0 5%;
+		display: block;
+		float: none;
+	}
+
+	.caption .box{
+    width: 90%;
+    padding: 0;
+    margin: 0 5%;
+	}
+
+	.caption .box h1{
+		font-size: 25px;
+	}
+
+	.caption .box-image:nth-child(2){
+		display: none;
+	}
+
+	.caption-footer h1{
+		font-size: 25px;
+	}
+
+}

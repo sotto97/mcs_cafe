@@ -1,3 +1,23 @@
 // Place all the styles related to the user::tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-title{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	margin: 0 auto;
+	color: #32be8f;
+	padding: 25px;
+	border: 2px solid #32be8f;
+	font-size: 25px;
+}
+
+.top-title:hover{
+	text-decoration: none;
+	background-color: rgba(50,190,143,0.5);
+	transition: 0.5s ease;
+	color: #fff;
+}

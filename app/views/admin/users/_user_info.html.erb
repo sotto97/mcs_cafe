@@ -1,0 +1,25 @@
+<table class="table">
+	<thead>
+		<tr class="notice-head">
+			<th width="20%">ユーザーID</th>
+			<th width="30%">ユーザー名</th>
+			<th width="25%">フォロー関係</th>
+			<th width="25%">ユーザーステータス</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= link_to user.id, admin_user_path(user), data: {"turbolinks" => false} %></td>
+			<td><%= user.username %></td>
+			<td><%= user.following.count %> Following<br><%= user.followers.count %> Follower</td>
+			<!-- ユーザーステータスのデフォルトはfalse(有効)。これがややこしい -->
+			<% if user.is_deleted == false %>
+				<td><p class="btn user-active">有効</p></td>
+			<% else %>
+				<td><p class="btn user-inactive">退会</p></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,18 @@
+<div class="container" style="height: 80vh;">
+	<div class="row">
+		<h2 style="text-align: center;">フォロー一覧</h2>
+		<div class="col-xs-8 col-xs-offset-2" style="position: relative; height: 80vh;">
+			<!-- ユーザーが誰もフォローしていない場合は<p>を表示 -->
+			<% if @user.following.count == 0 %>
+				<div id="follow" style="text-align: center;">
+					<h4>まだ誰もフォローしていません</h4>
+					<%= image_tag 'follow.svg', :width =>'60%' %>
+				</div>
+			<% else %>
+			<!-- ユーザーの情報 -->
+				<%= render 'user_info', user: @user %>
+
+			<% end %>
+		</div>
+	</div>
+</div>

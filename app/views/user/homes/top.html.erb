@@ -1,2 +1,131 @@
-<h1>User::Homes#top</h1>
-<p>Find me in app/views/user/homes/top.html.erb</p>
+<section class="top-content about element js-animation">
+	<div class="explain">
+		<P>MCS Cafeはカフェ兼コワーキンングスペースとしても利用できるカフェです<br>
+			ユーザー登録をすれば、MCS Cafeの良さをもっと知っていただけます。
+		</P>
+	  <%= link_to "もっと詳しく知る＞＞", about_path, style:"color: #fff;" %>
+	</div>
+</section>
+
+<section class="content news element js-animation" id="news" style="width: 100%;">
+	<div class="container">
+		<div class="row">
+			<!-- 左のnewsの画像入れる予定 -->
+			<div class="col-xs-6">
+				<div class="box" style="width: 100%; height: 500px;"></div>
+			</div>
+			<div class="col-xs-6 top-news">
+				<h2>NEWS</h2>
+				<!-- adminで登録した記事を見る機能 -->
+				<% @newses.each do |news| %>
+					<h5><strong><%= news.title %></strong></h5>
+					<p style="color: #808080;">（<%= news.updated_at.strftime("%Y/%m/%d") %>）</p>
+					<p><%= news.body.truncate(35) %><%= link_to " more", news_path %></p>
+				<% end %>
+				<p style="text-align: center;"><%= link_to "全てのNewsを見る＞＞", news_path, class: "more-news" %></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="content menu element js-animation" style="margin-top: 30px; width: 100%; height: 600px;">
+	<div class="container" style="text-align: center; color: #fff;">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>MENU</h2>
+				<div class="menu-img">
+					<!-- JavaScriptで画像をスライドさせる -->
+							<ul class="bxslider">
+								<% @menus.each do |menu| %>
+								<li>
+									<%= attachment_image_tag menu, :menu_image %>
+								</li>
+								<% end %>
+							</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="content place element js-animation">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6" style="text-align: center; padding: 30px;">
+				<h2>MCS Cafe</h2>
+				<h4>-営業時間-</h4>
+				<p>朝5時〜昼2時</p>
+				<h4>-定休日-</h4>
+				<p>不定休</p>
+				<h4>-設備-</h4>
+				<p>Wi-Fi</p>
+				<p>ミーティングルーム</p>
+				<p>コンセントレートルーム</p>
+				<h4>-住所-</h4>
+				<p>大阪府大阪市下村3丁目35-4</p>
+			</div>
+			<div class="col-xs-6">
+				<!-- 左のnewsの画像入れる予定 -->
+				<div class="box" style="width: 100%; height: 500px;"></div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="content contact element js-animation">
+	<h2 style="text-align: center; color: #fff;">Contact</h2>
+	<div class="content">
+	  <%= link_to "お問い合わせはこちらから＞＞", new_contact_path, style:"color: #fff;" %>
+	</div>
+</section>
+
+<!-- このページのbodyにのみ適応なのでここに記載 -->
+<style>
+	.about{
+		position: relative;
+		height: 640px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	#news{
+		height: 540px;
+	}
+
+	.news .box{
+		position: relative;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('morning2.jpg') %>");
+		background-size: cover;
+		background-position: bottom;
+	}
+
+	.news .more-news{
+		text-decoration: none;
+	}
+
+	.menu{
+	position: relative;
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('coffee beans.jpg') %>");
+	background-size: cover;
+	background-position: bottom;
+	}
+
+	.place .box{
+		position: relative;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('coffees.jpg') %>");
+		background-size: cover;
+		background-position: center;
+	}
+
+	.contact{
+		margin-top: 30px;
+		position: relative;
+		height: 540px;
+		width: 100%;
+		background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("<%= asset_path('laptop3.jpg') %>");
+		background-size: cover;
+		background-position: center;
+	}
+</style>

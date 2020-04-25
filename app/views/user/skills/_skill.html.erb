@@ -1,0 +1,29 @@
+<h4><i class="fas fa-tags"></i> スキルタグ</h4>
+<% if user.skills.count == 0 %>
+	<p>登録しているスキルはありません</p>
+<% else %>
+  <div class="skill_all">
+		<% user.skills.each do |skill| %>
+ 			<!-- <div class="skill_form_<%= skill.id %>"> -->
+			<%= render partial: 'user/skills/skill_form', locals: {skill: skill, user: user}  %>
+			<!-- </div> -->
+		<% end %>
+	</div>
+<% end %>
+
+<!-- スキル入力フォーム -->
+<% if user == current_user %>
+	<%= form_with(model: @skill, remote: true, url: skills_path) do |f| %>
+		<%= f.text_field :skill_name, class:"form-control", placeholder:"スキル名を入力" %>
+		<li>
+			<%= f.submit "追加する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
+		</li>
+	<% end %>
+<% end %>
+
+
+<style>
+	.fas:hover{
+		text-decoration: none;
+	}
+</style>

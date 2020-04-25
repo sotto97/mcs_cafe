@@ -1,0 +1,19 @@
+<% if @user == current_user %>
+
+	<div class="new-post">
+		<div class="row">
+			<div class="col-xs-10">
+				<%= form_with(model: @post, remote: true, url: posts_path) do |f| %>
+				<%# if post.errors.any? %>
+					<!-- <p>投稿内容を入力してください</p> -->
+				<%# end %>
+				<%= f.text_area :body, class:"form-control new-post", style:"width: 100%; height:100px;", placeholder:"何を共有したいですか？" %>
+			</div>
+			<div class="col-xs-2">
+				<%= f.submit :投稿する, class:"btn create-post", style:"color: #fff; font-size: 15px;" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+<% end %>

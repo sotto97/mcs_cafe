@@ -1,2 +1,48 @@
-<h1>Admin::News#index</h1>
-<p>Find me in app/views/admin/news/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-5" style="background-color: #eee; margin: 10px auto;">
+
+			<h2 style="text-align: center;">ニュース新規投稿</h2>
+			<div class="create-news-form" style="padding: 10px; height: 70vh;">
+				<div class="row">
+					<%= form_with(model: @news_new, local: true, url: admin_news_confirm_path, method: :get) do |f| %>
+
+							<%= f.text_field :title, class:"form-control news-title" %>
+							<%= f.text_area :body, class:"form-control news-body" %>
+							<%= f.submit :投稿する, class:"btn create-news" %>
+
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-7">
+
+			<div class="news-all" style="height: auto;">
+			<h2 style="text-align: center;">ニュース一覧</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th width="30%">タイトル</th>
+							<th width="70%">投稿内容</th>
+						</tr>
+					</thead>
+					<tbody style="border-bottom: 1px solid black;">
+						<% @newses.each do |news| %>
+							<tr>
+								<td>
+									<%= news.title %><br>
+									<p style="color: #808080;"><%= news.updated_at.strftime("%Y/%m/%d") %></p><br>
+									<%= link_to admin_news_path(news), method: :delete do %>
+                    <p><i class="fas fa-trash-alt"></i></p>
+                  <% end %>
+								</td>
+								<td><%= news.body %></td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,74 @@
+<ul class="profile" style="box-shadow: 5px 5px 5px #eee;">
+	<li>
+		<%= attachment_image_tag user, :profile_image, :size =>'100x100', format: 'jpeg''jpg''svg''png', fallback: "avator.svg", class: "img-circle" %>
+	</li>
+
+	<li><h4><strong><%= user.username %></strong></h4></li>
+
+	<!-- current_userのみ情報編集できる -->
+	<% if user == current_user %>
+		<li>
+			<%= link_to "情報編集する", edit_user_path(current_user), class:"btn edit-user", style:"color: #fff; font-size: 15px;" %>
+		</li>
+	<% end %>
+	<!-- ここまで -->
+
+	<li>
+		<div class="follow">
+		    <%= link_to following_user_path(user.id) do %>
+	        <h5 style="color: black;"><%= user.following.count %>　Following</h5>
+		    <% end %>
+		</div>
+		<div class="follower">
+		    <%= link_to followers_user_path(user.id) do %>
+	        <h5 style="color: black;"><%= user.followers.count %>　Follower</h5>
+		    <% end %>
+		</div>
+
+		<%= render "user/relationships/follow", user: user %>
+
+	</li>
+
+	<li>
+		<h4><i class="fas fa-user"></i> 自己紹介文</h4>
+		<p style="text-align: left;"><%= user.introduction %></p>
+	</li>
+
+	<li>
+		<%= render "user/skills/skill", skill: @skill, user: user %>
+	</li>
+
+	<li>
+		<!-- usernameでのみ検索可能 -->
+		<h4><i class="fas fa-search"></i> ユーザー検索</h4>
+		<%= form_with url: searches_path, method: :get, local: true do |f| %>
+		<%= f.text_field :username, class:"form-control", placeholder:"ユーザー名を入力してください" %>
+		<li>
+			<%= f.submit "検索する", class:"btn search-user", style:"color: #fff; font-size: 15px;" %>
+		</li>
+		<% end %>
+	</li>
+
+	<li>
+		<!-- チャット機能 -->
+		<% if user_signed_in? && @user != current_user %>
+		<h4 class=""><i class="fas fa-comments"></i> チャット</h4>
+	    <%= form_with url: rooms_path, method: :post, local: true do |f| %>
+				<%= f.hidden_field :guest_user_id, value: @user.id %>
+				<%= f.hidden_field :host_user_id, value: current_user.id %>
+	      <%= f.text_field :name, class:"form-control", placeholder:"ルーム名を入力してください" %>
+	      <%= f.submit "新しいチャットルームを作成する", class: "btn create-chat", style:"color: #fff;" %>
+	    <% end %>
+    <% end %>
+ 	</li>
+
+	<li>
+		<!-- current_userは自分を通報できない -->
+		<% if user_signed_in? && @user != current_user %>
+			<%= link_to new_user_notice_path(@user), class:"btn notice-user" do %>
+				<i class="fas fa-exclamation-circle" style="color: #fff; font-size: 15px;"> 通報する</i>
+			<% end %>
+		<% end %>
+	</li>
+
+</ul>

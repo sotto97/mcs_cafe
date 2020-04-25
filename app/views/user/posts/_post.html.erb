@@ -1,0 +1,15 @@
+<div class="post_all">
+	<% @posts.each do |post| %>
+			<%= render partial: 'user/posts/post_detail', locals: {post: post} %>
+	<% end %>
+</div>
+
+<style>
+	.fav th{
+		padding: 0 10px;
+	}
+
+	.user-post td{
+	  white-space: pre-wrap;
+	}
+</style>

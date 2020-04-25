@@ -1,2 +1,35 @@
-<h1>Admin::Menus#index</h1>
-<p>Find me in app/views/admin/menus/index.html.erb</p>
+<div class="container" style="text-align: center;">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+			<h2>メニュー作成</h2>
+		  <%= form_for(@menu, url: admin_menus_path, method: :post) do |f| %>
+				<%= f.attachment_field :menu_image, style:"margin: 20px auto;" %>
+				<%= f.submit "追加", class: "btn add-menu" %>
+			<% end %>
+
+				<h2>メニュー一覧</h2>
+				<div class="menu-image-all">
+
+					<% @menus.each do |menu| %>
+						<div class="menu-image">
+							<%= attachment_image_tag menu, :menu_image, size: "400x225" %>
+
+						  <%= form_for(menu, url: admin_menu_path(menu.id), method: :put) do |f| %>
+								<%= f.attachment_field :menu_image, style:"margin: 20px auto;" %>
+								<%= f.submit "メニューを変更する", class: "btn change_menu_image" %>
+							<% end %>
+
+						  <%= form_for(menu, url: admin_menu_path(menu.id), method: :delete) do |f| %>
+								<%= f.submit "メニューを削除する", class: "btn delete_menu_image" %>
+							<% end %>
+						</div>
+					<% end %>
+
+				</div>
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>

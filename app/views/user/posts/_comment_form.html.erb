@@ -1,0 +1,14 @@
+<div class="row">
+	<h3 style="text-align: center">コメント入力</h3>
+	<div class="new-post-comment">
+		<div class="col-xs-9">
+			<!-- postとpost_commentだから、modelを2つ指定する -->
+			<%= form_with(model: [post, @post_comment], remote: true) do |f| %>
+			<%= f.text_area :comment, class:"form-control new-post-comment", style:"height:100px;", placeholder:"コメントをここに入力してください" %>
+		</div>
+		<div class="col-xs-3">
+			<%= f.submit :コメントする, class:"btn create-post-comment", style:"color: #fff; font-size: 15px;" %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,3 +1,61 @@
 // Place all the styles related to the admin::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* admin user_index user_search */
+
+.admin-user-search ul li{
+	display: inline-block;
+	list-style: none;
+	padding: 0 10px
+}
+
+.admin-search-user{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* admin user_index */
+
+.user-active{
+  width: auto;
+  height: auto;
+  background-color: #2E3892;
+  color: #fff;
+}
+
+.user-active:hover{
+  color: #fff;
+  cursor: default;
+}
+
+.user-inactive{
+  width: auto;
+  height: auto;
+  background-color: #808080;
+  color: #fff;
+}
+
+.user-inactive:hover{
+  color: #fff;
+  cursor: default;
+}
+
+/* admin user_show */
+
+.update-status{
+  width: auto;
+  height: auto;
+  background-color: #2E3892;
+  color: #fff;
+}

@@ -1,3 +1,94 @@
 // Place all the styles related to the admin::news controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* admin news_index */
+
+.create-news-form{
+	position: relative;
+	width: 100%;
+	background-color: #eee;
+}
+
+.create-news-form .news-title{
+	margin-bottom: 20px;
+}
+
+.create-news-form .news-body{
+	margin: 20px 0;
+	height: 300px;
+}
+
+.create-news-form .btn{
+	position: absolute;
+	width: auto;
+	height: auto;
+	background-size: 200%;
+	display: block;
+	text-align: center;
+	line-height: 200%;
+	border-radius: 5px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	background-color: #333;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+}
+
+/* admin news_show */
+
+.news-confirm{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.news-confirm .news-form{
+	margin: 30px 0;
+}
+
+.news-confirm .create-news{
+	width: auto;
+	height: auto;
+	background-size: 200%;
+	text-align: center;
+	line-height: 200%;
+	border-radius: 5px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	background-color: #333;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+}
+
+.news-confirm .create-news:hover{
+	color: #fff;
+}
+
+.news-confirm .news{
+	width: auto;
+	height: auto;
+	background-size: 200%;
+	text-align: center;
+	line-height: 200%;
+	border-radius: 5px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	background-color: #808080;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+}
+
+.news-confirm .news:hover{
+	color: #fff;
+}

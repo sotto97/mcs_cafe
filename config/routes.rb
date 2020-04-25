@@ -11,25 +11,28 @@ Rails.application.routes.draw do
 
   # userのrouting  module: "user"の記述でuserフォルダを指定している
   get 'about' => 'user/homes#about'
-  resources :contacts, only: [:new, :edit, :create], module: 'user'
+  get 'news' => 'user/homes#news'
+  resources :contacts, only: [:new, :create], module: 'user'
   get 'contacts/confirm' => 'user/contacts#confirm'
+  post 'contacts/edit' => 'user/contacts#edit'
   get 'contacts/thanks' => 'user/contacts#thanks'
   get 'mcs' => 'user/tops#top'
-  resources :users, only: [:index, :edit, :update], module: 'user' do
-    resource :relationships, only: [:index, :create, :destroy]
+  resources :users, only: [:index, :show, :edit, :update], module: 'user' do
+    member do
+        get :following, :followers
+    end
+    resources :notices, only: [:new, :create]
   end
-  put 'users/hide' => 'user/users#hide'
-  get 'notices' => 'user/users#notice'
-  post 'notices' => 'user/users#create'
+  resources :skills, only: [:create, :destroy], module: 'user'
+  # user#showとのpathを変えるための記載
+  put 'users/:id/hide' => 'user/users#hide', as: 'users_hide'
+  resources :relationships, only: [:create, :destroy], module: 'user'
   get 'searches' => 'user/searches#search'
   resources :posts, only: [:index, :show, :create, :destroy], module: 'user' do
     resource :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
-  # チャットルームの実装はテーブルのカラム作成から着手
-  resources :rooms, only: [:show, :create], module: 'user' do
-    resources :messages, only: [:show, :create]
-  end
+  resources :rooms, module: 'user'
 
   # adminのdeviseのrouting
   devise_for :admins, controllers: {
@@ -42,14 +45,16 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'home' => 'homes#top'
     resources :notices, only: [:index, :show]
-    resources :news, only: [:index, :show, :create]
+    resources :news, only: [:index, :create, :destroy]
+    get 'news/confirm' => 'news#confirm'
     resources :users, only: [:index, :show, :update] do
-       get 'relationship' => 'users#relationships'
+      member do
+          get :following, :followers
+      end
     end
     get 'searches' => 'searches#search'
-    # contactsの返信はcreateで合っているのか？
     resources :contacts, only: [:index, :show, :create, :update]
-    resources :menus, only: [:index, :create, :update]
+    resources :menus, only: [:index, :create, :update, :destroy]
   end
 
 end

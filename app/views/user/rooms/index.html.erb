@@ -1,0 +1,59 @@
+<div class="container" style="text-align: center;">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>チャットルーム一覧</h1>
+      <!-- 自分の参加しているチャットルームしか表示されない -->
+      <table class="table room-all" style="width: 80%;">
+        <thead>
+          <th>ルーム名</th>
+          <th colspan="2">参加ユーザー</th>
+          <th>更新日時</th>
+          <th>削除</th>
+        </thead>
+        <% @rooms.each do |room| %>
+          <% if room.host_user_id == current_user.id %>
+              <tbody>
+                <tr>
+                  <td><!-- チャットルーム名 -->
+                    <%= link_to room_path(room) do %>
+                      <p><%= room.name %></p>
+                    <% end %>
+                  </td>
+                  <td><p><%= room.host_user.username %></p></td>
+                  <td><p><%= room.guest_user.username %></td>
+                  <td>
+                    <p style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+                  </td>
+                  <td><!-- チャットルーム名 -->
+                    <%= link_to room_path(room), method: :delete do %>
+                      <p><i class="fas fa-trash-alt"></i></p>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+          <% elsif room.guest_user_id == current_user.id %>
+              <tbody>
+                <tr>
+                  <td><!-- チャットルーム名 -->
+                    <%= link_to room_path(room) do %>
+                      <p><%= room.name %></p>
+                    <% end %>
+                  </td>
+                  <td><p><%= room.host_user.username %></p></td>
+                  <td><p><%= room.guest_user.username %></td>
+                  <td>
+                    <p style="color: #C0C0C0;"><%= room.updated_at.strftime("%Y/%m/%d %H:%M") %></p>
+                  </td>
+                  <td><!-- チャットルーム名 -->
+                    <%= link_to room_path(room), method: :delete, data: {confirm: "投稿を削除しますか？"} do %>
+                      <p><i class="fas fa-trash-alt"></i></p>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,31 @@
-<h1>Admin::Notices#show</h1>
-<p>Find me in app/views/admin/notices/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4">
+				<div style="margin: 30px 0;"><%= image_tag 'error.svg', :width => "90%" %></div>
+		</div>
+		<div class="col-xs-8">
+			<h2 style="text-align: center;">通報通達詳細</h2>
+				<div class="notice-all">
+					<table class="table">
+						<thead>
+							<tr>
+								<th width="10%">通報ID</th>
+								<th width="20%">ユーザーID</th>
+								<th width="20%">ユーザー名</th>
+								<th width="50%">通報理由</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= @notice.id %></td>
+								<td><%= @notice.user_id %></td>
+								<td><%= @notice.username %></td>
+								<td><%= @notice.body %></td>
+							</tr>
+						</tbody>
+					</table>
+				<%= link_to "戻る", admin_notices_path, class:"btn back-notice" %>
+				</div>
+		</div>
+	</div>
+</div>

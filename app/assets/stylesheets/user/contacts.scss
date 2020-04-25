@@ -1,3 +1,112 @@
 // Place all the styles related to the user::contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.product-form{
+	padding-top: 30px;
+}
+
+#contact{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.actions .contact{
+  width: 50%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 30px auto;
+  outline: none;
+  border: none;
+  background-color: #2E3892;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.actions .send-contact{
+  width: 50%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 30px auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.thanks{
+	position: relative;
+	height: 550px;
+	width: 100%;
+}
+
+.thanks .content{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+}
+
+.thanks .back-top{
+  width: 40%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  margin: 30px auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* view_port */
+@media screen and (max-width:425px) {
+  .social i {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  #contact{
+    width: 350px;
+  }
+
+  #contact h2{
+    font-size: 25px;
+  }
+
+  .actions .contact{
+    width: 60%;
+  }
+
+  .actions .send-contact{
+    width: 60%;
+  }
+
+  .thanks .content{
+    width: 100%;
+  }
+
+  #contact .thanks h2{
+    font-size: 20px;
+  }
+}

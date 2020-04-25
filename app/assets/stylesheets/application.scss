@@ -1,0 +1,374 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bxslider
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+.title {
+  padding-top: 30px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.navbar-nav{
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+  float:none;
+}
+
+.nav-item{
+	padding: 0 30px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.6%, ease;
+}
+
+.nav-item:hover{
+	background-color: #2E3892;
+	color: #fff;
+}
+
+.nav-link{
+	transition: 0.5s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover{
+	color: #fff;
+}
+
+.navbar-default{
+	background-color: #eee;
+	opacity: 0.9;
+}
+
+/*ログイン後のheader*/
+
+.nav-item-user{
+	padding: 0 30px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.6%, ease;
+}
+
+.nav-item-user:hover{
+	background-color: #32be8f;
+	color: #fff;
+}
+
+.nav-link{
+	transition: 0.5s ease;
+}
+
+.navbar-nav .nav-item-user .nav-link:hover{
+	color: #fff;
+}
+
+footer{
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-color: #eee;
+}
+
+footer p{
+	position: absolute;
+	width: auto;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	text-align: center;
+	font-size: 15px;
+}
+
+body{
+	padding-top: 50px;
+}
+
+/*ログイン・サインインのレイアウト*/
+
+.login-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.field{
+  padding-top: 10px;
+}
+
+i{
+  color: grey;
+}
+
+.field div input{
+  width: 93%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.field > input{
+  width: 90%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.checklogin{
+  position: relative;
+  height: 100vh;
+}
+
+.check-login{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
+
+.check-login .actions .btn{
+  width: 90%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: #2E3892;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 20px auto;
+}
+
+.actions .login {
+  width: 100%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: #2E3892;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.actions .signup {
+  width: 100%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* adminログイン後のheader */
+
+
+.nav-item-admin{
+  padding: 0 30px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.6%, ease;
+}
+
+.nav-item-admin:hover{
+  background-color: #333;
+  color: #fff;
+}
+
+.nav-link{
+  transition: 0.5s ease;
+}
+
+.navbar-nav .nav-item-admin .nav-link:hover{
+  color: #fff;
+}
+
+footer{
+  position: relative;
+  height: 100px;
+  width: 100%;
+  background-color: #eee;
+}
+
+footer p{
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  text-align: center;
+  font-size: 15px;
+}
+
+body{
+  padding-top: 50px;
+}
+
+/* adminログイン画面 */
+
+/*ログイン・サインインのレイアウト*/
+
+.admin-login-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  height: auto;
+}
+
+.field{
+  padding-top: 10px;
+}
+
+i{
+  color: grey;
+}
+
+.field div input{
+  width: 93%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.field > input{
+  width: 90%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.actions .admin-login{
+  width: 90%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  margin: 1rem 0;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  background-color: #2E3892;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 20px auto;
+}
+
+/* view_port */
+@media screen and (max-width:425px) {
+  .social i {
+    width: 90%;
+    padding: 0 5%;
+  }
+
+  footer p {
+    width: 300px;
+    font-size: 12px;
+  }
+
+  .login-form{
+    width: 300px;
+    height: auto;
+  }
+
+  .checklogin{
+    width: 300px;
+    height: 20vh;
+    margin: 60px 10% 10px;
+  }
+
+  .actions h2{
+    font-size: 25px;
+  }
+
+  .check-login{
+    text-align: center;
+    position: absolute;
+    display: flex;
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 10%;
+  }
+
+  .signup-form{
+    width: 300px;
+    margin: 5% 10%;
+  }
+}

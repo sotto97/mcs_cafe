@@ -1,3 +1,96 @@
 // Place all the styles related to the user::posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* post_index */
+
+.profile tr{
+	display: block;
+	padding-top: 10px;
+}
+
+.edit-user{
+  width: 100%;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-post{
+	border-bottom: 1px solid grey;
+	margin-top: 30px;
+	padding-bottom: 20px;
+}
+
+.more .more-action{
+  width: 40%;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 20px auto;
+}
+
+/* post_show */
+
+.user-post a{
+  text-decoration: none;
+  color: black;
+}
+
+.user-post a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+.create-post-comment{
+  width: auto;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.comment-all{
+  border-bottom: 1px solid grey;
+  margin-top: 30px;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.delete-post{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}

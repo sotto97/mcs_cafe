@@ -1,2 +1,52 @@
-<h1>Admin::Contacts#show</h1>
-<p>Find me in app/views/admin/contacts/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1">
+
+			<div class="">
+			<h2 style="text-align: center;">お問い合わせ詳細</h2>
+				<table class="table contact-detail">
+					<thead>
+						<tr>
+							<th width="20%">タイトル・返信ステータス</th>
+							<th width="60%">投稿内容</th>
+							<th width="20%">メールアドレス</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="height: auto;">
+								<%= @contact.title %><br>
+								<!-- 返信ステータスのデフォルトはfalse(未返信) -->
+								<% if @contact.is_deleted == false %>
+									<p class="btn no-reply">未返信</p>
+								<% else %>
+									<p class="btn reply">返信済</p>
+								<% end %>
+							</td>
+							<td><%= @contact.body %></td>
+							<td><%= @contact.email %></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="table reply-status">
+					<tbody>
+						<%= form_with(model: @contact_reply, local: true, url: admin_contact_path, method: :put) do |f| %>
+							<tr style="text-align: center;">
+								<td>
+									<strong style="margin: 0 20px;">返信</strong>
+									<%= f.select :is_deleted, [["返信済",true], ["未返信",false]], include_blank:"選択してください" %>
+									<%= f.submit "変更する", class:"btn reply-contact" %>
+								</td>
+							</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+
+</style>

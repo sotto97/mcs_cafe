@@ -1,3 +1,205 @@
 // Place all the styles related to the user::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* user_show */
+
+.create-post{
+  width: auto;
+  height: 40px;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile{
+  background-color: #efefef;
+}
+
+.profile li{
+	display: block;
+	padding: 10px;
+  text-align: center;
+}
+
+.edit-user{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-user{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.user-post{
+	border-bottom: 1px solid grey;
+	margin-top: 30px;
+	padding-bottom: 10px;
+}
+
+.user-post a{
+  text-decoration: none;
+  color: black;
+}
+
+.notice-user{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: #BE3232;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* サイドバーの _profile */
+
+.create-chat{
+  width: auto;
+  height: auto;
+  background-size: 200%;
+  display: block;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  margin: 10px auto;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* user_edit */
+
+.field{
+  padding-bottom: 20px;
+}
+
+.field-image{
+  padding: 10px 0 20px 0;
+}
+
+.field-image input{
+  width: 96%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0 auto;
+  border: none;
+  border-bottom: 1px solid grey;
+  outline: none;
+  background: none;
+  padding: 3px;
+  font-size: 12px;
+  color: #555;
+}
+
+.image .user-image{
+  width: auto;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .back-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: grey;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .update-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #32be8f;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .withdraw-user{
+  width: 30%;
+  height: 40px;
+  background-size: 200%;
+  text-align: center;
+  line-height: 200%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  background-color: #BE3232;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.field .edit{
+  font-size: 15px;
+}
+
+.field .introduction{
+  width: 90%;
+  height: 100px;
+  margin: 0 auto;
+}
+
+#follow{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+}
