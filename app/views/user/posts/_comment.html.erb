@@ -7,7 +7,7 @@
 					<tr>
 						<% if post_comment.user == current_user %>
 						<!-- コメント削除をハンバーガーメニューに -->
-						<%= link_to "", post_post_comments_path(post_comment), method: :delete, data: {confirm: "コメントを削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px; padding-top: 10px;" %>
+						<%= link_to "", post_post_comments_path(post_comment), remote: true, method: :delete, data: {confirm: "コメントを削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px; padding-top: 10px;" %>
 						<% end %>
 					</tr>
 				</table>

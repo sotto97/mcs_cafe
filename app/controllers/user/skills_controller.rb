@@ -4,14 +4,13 @@ class User::SkillsController < ApplicationController
 		@skill = Skill.new(skill_params)
   	@skill.user_id = current_user.id
 		@skill.save
-		redirect_to user_path(current_user)
+		@user = current_user
 	end
 
   def destroy
 		@skills = Skill.all
     @skill = Skill.find(params[:id])
     @skill.destroy
-    redirect_to user_path(current_user)
   end
 
 	private

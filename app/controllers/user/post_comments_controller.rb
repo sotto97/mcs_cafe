@@ -12,7 +12,6 @@ class User::PostCommentsController < ApplicationController
     @post = @post_comment.post
     @post_comment.user != current_user
     @post_comment.destroy
-    redirect_to post_path(@post)
   end
 
   private

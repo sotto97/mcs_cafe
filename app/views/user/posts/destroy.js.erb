@@ -1,1 +1,1 @@
-$(".post-form_<%= @post.id %>").html("<%= j(render partial: 'user/posts/post', locals: {post: @post}) %>");
+$(".post-form_<%= @post.id %>").remove();

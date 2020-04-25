@@ -1,1 +1,2 @@
-// $(".skill_form_<%= @skill.id %>").html("<%= j(render partial: 'user/skills/skill_form', locals: {skill: skill}) %>");
+$(".skill_all").append("<%= j(render partial: 'user/skills/skill_form', locals: {skill: @skill, user: @user}) %>");
+$('#skill_name').val('')

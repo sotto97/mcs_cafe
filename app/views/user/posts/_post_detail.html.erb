@@ -1,10 +1,10 @@
-<div class="user-post">
+<div class="user-post post-form_<%= post.id %>">
 	<div class="row">
 		<div class="col-xs-2">
 			<table style="margin: 0 auto;">
 				<tr>
 					<%= link_to(post.user) do %>
-						<%= attachment_image_tag(post.user, :profile_image, :size =>'50x50', fallback: "avator.svg",class: "img-circle") %>
+						<%= attachment_image_tag(post.user, :profile_image, :size =>'50x50', fallback: "avator.svg", data: {"turbolinks" => false}, class: "img-circle") %>
 					<% end %>
 				</tr>
 			</table>
@@ -18,7 +18,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td style="padding-bottom: 10px;"><%= link_to post.body, post %></td>
+						<td style="padding-bottom: 10px;"><%= link_to post.body, post, data:{"turbolinks" => false} %></td>
 						<td><%= attachment_image_tag(post.image_id, :image, :size =>'50x100') %></td>
 					</tr>
 				</tbody>
@@ -28,7 +28,7 @@
 			<table>
 				<tr>
 					<% if post.user == current_user %>
-						<%= link_to "", post_path(post), method: :delete, data: {confirm: "投稿を削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px; padding-top: 10px;" %>
+						<%= link_to "", post_path(post), remote: true, method: :delete, data: {confirm: "投稿を削除しますか？"}, class:"fas fa-trash-alt", style:"color: black; font-size: 20px; padding-top: 10px;" %>
 					<% end %>
 				</tr>
 			</table>
