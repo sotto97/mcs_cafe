@@ -79,3 +79,8 @@ gem "font-awesome-rails"
 gem 'bxslider-rails'
 # paginationするためのgem
 gem 'kaminari'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
